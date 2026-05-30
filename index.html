@@ -116,7 +116,13 @@
     transition: color 160ms ease;
   }
   .topnav a:hover { color: var(--accent); }
-  @media (max-width: 720px) { .topnav { display: none; } }
+  @media (max-width: 720px) {
+    .topbar-inner { flex-direction: column; gap: 10px; padding: 12px 20px; }
+    .topnav { gap: 20px; justify-content: center; flex-wrap: wrap; font-size: 11px; letter-spacing: 0.12em; }
+  }
+  @media (max-width: 360px) {
+    .topnav { gap: 14px; }
+  }
 
   /* ---------- Hero ---------- */
   .hero {

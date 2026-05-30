@@ -14,9 +14,6 @@
 //   • Runs on Netlify Edge (Deno). Web Crypto (crypto.subtle) is built in.
 //   • The cookie stores SHA-256(password + salt), never the password itself.
 //   • Session lasts 7 days; cookie is HttpOnly, Secure, SameSite=Strict.
-//   • Both the env-var password and the submitted password are trimmed of
-//     leading/trailing whitespace — guards against password-manager paste
-//     errors (a common, easy-to-miss failure mode).
 
 import type { Context } from "https://edge.netlify.com";
 
@@ -44,9 +41,7 @@ function safeEqual(a: string, b: string): boolean {
 
 export default async (request: Request, context: Context) => {
   const url = new URL(request.url);
-  // .trim() guards against trailing whitespace from password managers or
-  // mobile keyboards — a surprisingly common silent failure.
-  const password = (Deno.env.get("STUDENT_PORTAL_PASSWORD") ?? "").trim();
+  const password = Deno.env.get("STUDENT_PORTAL_PASSWORD") ?? "";
   const expectedToken = password ? await sha256Hex(password + SALT) : "";
 
   // ---- Logout ---------------------------------------------------------------
@@ -71,8 +66,7 @@ export default async (request: Request, context: Context) => {
     let submitted = "";
     try {
       const form = await request.formData();
-      // .trim() here too — strip any whitespace before hashing.
-      submitted = String(form.get("password") ?? "").trim();
+      submitted = String(form.get("password") ?? "");
     } catch {
       submitted = "";
     }
