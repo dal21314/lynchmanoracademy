@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lynch Manor Academy — Scientia, Virtus, Lumen</title>
+<meta name="description" content="An independent Christian homeschool program in Pennsylvania. Knowledge, virtue, and light — rooted in family, faith, and the real world.">
+<meta property="og:title" content="Lynch Manor Academy">
+<meta property="og:description" content="Scientia · Virtus · Lumen. An independent Christian homeschool program in Pennsylvania.">
+<meta property="og:image" content="assets/lynch-manor-logo.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lynchmanoracademy.org">
+<meta name="theme-color" content="#18243f">
+<link rel="icon" type="image/png" sizes="any" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="180x180" href="assets/lynch-manor-logo.png">
+<link rel="apple-touch-icon" href="assets/lynch-manor-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:        #18243f;
+    --navy-2:      #1f2a44;
+    --navy-line:   #2d3a5c;
+    --accent:      #e9b464;
+    --accent-quiet:#af8543;
+    --grey-bg:     #3d4046;
+    --grey-bg-2:   #34373c;
+    --grey-line:   #52555c;
+    --ink:         #e9ecf2;
+    --ink-dim:     #a9b0be;
+    --ink-quiet:   #b0b6c2;
+    --on-accent:   #1a1300;
+
+    --serif: 'Cinzel', 'Trajan Pro', 'Times New Roman', serif;
+    --serif-body: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --sans: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+    --measure: 64rem;
+    --measure-narrow: 42rem;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: var(--navy);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Paper-grain noise + a vignette so the navy doesn't feel flat. */
+    background-image:
+      radial-gradient(ellipse at 50% 0%, rgba(233,180,100,0.05) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 100%, rgba(0,0,0,0.35) 0%, transparent 60%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.91, 0 0 0 0 0.71, 0 0 0 0 0.39, 0 0 0 0.025 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-attachment: fixed, fixed, fixed;
+    background-size: auto, auto, 160px 160px;
+  }
+
+  ::selection { background: var(--accent); color: var(--on-accent); }
+
+  /* ---------- Page rails ---------- */
+  .wrap {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+  .wrap.narrow { max-width: var(--measure-narrow); }
+
+  /* ---------- Top topbar ---------- */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    background: rgba(24, 36, 63, 0.72);
+    border-bottom: 1px solid rgba(45, 58, 92, 0.7);
+  }
+  .topbar-inner {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .topmark { display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
+  .topmark img { width: 28px; height: 28px; display: block; }
+  .topmark .name {
+    font-family: var(--serif);
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .topmark .name em { color: var(--accent); font-style: normal; font-weight: 400; }
+  .topnav {
+    display: flex;
+    gap: 26px;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-family: var(--sans);
+    font-weight: 600;
+  }
+  .topnav a {
+    color: var(--ink-dim);
+    text-decoration: none;
+    transition: color 160ms ease;
+  }
+  .topnav a:hover { color: var(--accent); }
+  @media (max-width: 720px) { .topnav { display: none; } }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    text-align: center;
+    padding: 88px 28px 96px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before, .hero::after {
+    /* Ornamental hairline rules either side of the crest area */
+    content: "";
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--accent-quiet), transparent);
+    opacity: 0.55;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(560px, 70vw);
+  }
+  .hero::before { top: 64px; }
+  .hero::after  { bottom: 64px; }
+
+  .crest-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 14px;
+    margin: 0 auto 28px;
+  }
+  .crest-wrap::before {
+    content: "";
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 45%, rgba(233,180,100,0.18), transparent 65%);
+    filter: blur(8px);
+    z-index: 0;
+  }
+  .crest {
+    position: relative;
+    z-index: 1;
+    width: 156px;
+    height: 156px;
+    display: block;
+    filter: drop-shadow(0 18px 28px rgba(0,0,0,0.45));
+  }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--ink-quiet);
+    margin: 0 0 18px;
+    font-weight: 600;
+  }
+  .eyebrow .dot { color: var(--accent); margin: 0 0.5em; }
+
+  h1.title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(34px, 5.8vw, 64px);
+    line-height: 1.05;
+    letter-spacing: 0.06em;
+    margin: 0 0 28px;
+    color: var(--ink);
+    text-transform: none;
+  }
+  h1.title .ampersand,
+  h1.title .gold { color: var(--accent); }
+
+  .motto {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(15px, 2.0vw, 20px);
+    letter-spacing: 0.42em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin: 0 0 10px;
+    text-indent: 0.42em; /* compensate trailing letter-spacing */
+  }
+  .motto .sep {
+    color: var(--accent-quiet);
+    margin: 0 0.15em;
+    font-weight: 400;
+  }
+  .motto-en {
+    font-family: var(--serif-body);
+    font-style: italic;
+    font-size: clamp(15px, 1.9vw, 19px);
+    color: var(--ink-dim);
+    letter-spacing: 0.04em;
+    margin: 0 0 36px;
+  }
+  .tagline {
+    font-family: var(--serif-body);
+    font-size: clamp(17px, 2.1vw, 22px);
+    color: var(--ink);
+    line-height: 1.5;
+    max-width: 38ch;
+    margin: 0 auto;
+  }
+
+  /* ---------- Section scaffold ---------- */
+  section.section {
+    padding: 92px 0;
+    position: relative;
+  }
+  .section + .section { border-top: 1px solid rgba(45, 58, 92, 0.55); }
+
+  .section.alt {
+    background: linear-gradient(180deg, rgba(31, 42, 68, 0.55) 0%, rgba(31, 42, 68, 0.78) 100%);
+  }
+
+  .section-head {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .section-num {
+    font-family: var(--serif);
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 0 0 14px;
+  }
+  .section-num::before, .section-num::after {
+    content: "";
+    display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--accent-quiet);
+    vertical-align: middle;
+    margin: 0 14px;
+    opacity: 0.7;
+  }
+  h2.section-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(26px, 3.4vw, 36px);
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    margin: 0 0 14px;
+    color: var(--ink);
+  }
+  .section-lede {
+    font-family: var(--serif-body);
+    font-style: italic;
+    color: var(--ink-dim);
+    font-size: 18px;
+    max-width: 52ch;
+    margin: 0 auto;
+  }
+
+  /* ---------- Three pillars ---------- */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  @media (max-width: 860px) { .pillars { grid-template-columns: 1fr; } }
+
+  .pillar {
+    padding: 8px 36px;
+    text-align: center;
+    position: relative;
+  }
+  .pillar + .pillar { border-left: 1px solid rgba(45, 58, 92, 0.7); }
+  @media (max-width: 860px) {
+    .pillar + .pillar { border-left: 0; border-top: 1px solid rgba(45, 58, 92, 0.7); padding-top: 40px; margin-top: 32px; }
+    .pillar { padding: 0 8px; }
+  }
+
+  .pillar-glyph {
+    font-family: var(--serif);
+    font-size: 38px;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    margin: 0 0 14px;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .pillar-glyph .ornament {
+    display: inline-block;
+    margin: 0 6px;
+    color: var(--accent-quiet);
+    font-size: 14px;
+    vertical-align: middle;
+    transform: translateY(-4px);
+  }
+  .pillar h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+  .pillar .en {
+    font-family: var(--serif-body);
+    font-style: italic;
+    color: var(--accent);
+    font-size: 15px;
+    margin: 0 0 18px;
+    letter-spacing: 0.02em;
+  }
+  .pillar p {
+    font-family: var(--serif-body);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+    margin: 0;
+    max-width: 32ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ---------- About ---------- */
+  .about-prose {
+    font-family: var(--serif-body);
+    font-size: 20px;
+    line-height: 1.65;
+    color: var(--ink);
+    max-width: 38rem;
+    margin: 0 auto;
+  }
+  .about-prose p { margin: 0 0 1.1em; }
+  .about-prose p:first-of-type::first-letter {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 3.4em;
+    line-height: 0.95;
+    float: left;
+    color: var(--accent);
+    margin: 0.05em 0.12em 0 -0.04em;
+    padding-right: 0.04em;
+  }
+  .about-sign {
+    text-align: center;
+    margin-top: 36px;
+    font-family: var(--serif);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .about-sign .rule {
+    display: inline-block;
+    width: 36px; height: 1px;
+    background: var(--accent-quiet);
+    vertical-align: middle;
+    margin: 0 14px;
+    opacity: 0.7;
+  }
+
+  /* ---------- People grid (students + faculty) ---------- */
+  .people {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  @media (max-width: 720px) { .people { grid-template-columns: 1fr; } }
+
+  .person-card {
+    background: var(--navy-2);
+    border: 1px solid var(--navy-line);
+    border-radius: 4px;
+    padding: 32px 32px 28px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .person-card::before {
+    content: "";
+    position: absolute;
+    top: -1px; left: 18px; right: 18px;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0.85;
+  }
+
+  .portrait {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 1px solid var(--navy-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .portrait::before {
+    content: "";
+    position: absolute; inset: 4px;
+    border-radius: 50%;
+    border: 1px solid var(--accent-quiet);
+    opacity: 0.55;
+  }
+  .portrait .initial {
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+
+  .person-name {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0.06em;
+    margin: 0 0 4px;
+    color: var(--ink);
+  }
+  .person-role {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0 0 18px;
+  }
+  .person-meta {
+    font-family: var(--serif-body);
+    font-style: italic;
+    color: var(--ink-quiet);
+    font-size: 15px;
+    margin: 0 0 14px;
+  }
+  .person-bio {
+    font-family: var(--serif-body);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-dim);
+    margin: 0;
+    max-width: 32ch;
+  }
+
+  /* ---------- Curriculum grid ---------- */
+  .curr-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border: 1px solid var(--navy-line);
+    border-radius: 4px;
+    overflow: hidden;
+    background: rgba(31, 42, 68, 0.4);
+  }
+  @media (max-width: 720px) { .curr-grid { grid-template-columns: 1fr; } }
+
+  .curr-item {
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--navy-line);
+    border-right: 1px solid var(--navy-line);
+    display: flex;
+    gap: 18px;
+    align-items: baseline;
+  }
+  .curr-item:nth-child(2n) { border-right: 0; }
+  @media (max-width: 720px) {
+    .curr-item { border-right: 0; }
+  }
+  .curr-item:nth-last-child(-n+2) { border-bottom: 0; }
+  @media (max-width: 720px) {
+    .curr-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--navy-line); }
+    .curr-item:last-child { border-bottom: 0; }
+  }
+
+  .curr-num {
+    font-family: var(--serif);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    font-weight: 500;
+    min-width: 2.2em;
+    text-align: right;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .curr-body { flex: 1; }
+  .curr-name {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 17px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 0 0 4px;
+  }
+  .curr-desc {
+    font-family: var(--serif-body);
+    font-size: 16px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* ---------- Scripture quote ---------- */
+  .scripture {
+    text-align: center;
+    padding: 80px 28px;
+    border-top: 1px solid rgba(45, 58, 92, 0.55);
+    border-bottom: 1px solid rgba(45, 58, 92, 0.55);
+  }
+  .scripture blockquote {
+    margin: 0 auto;
+    max-width: 44rem;
+    font-family: var(--serif-body);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(22px, 2.8vw, 30px);
+    line-height: 1.45;
+    color: var(--ink);
+    position: relative;
+  }
+  .scripture blockquote::before,
+  .scripture blockquote::after {
+    color: var(--accent-quiet);
+    font-family: var(--serif);
+    font-size: 1.4em;
+    line-height: 0;
+    position: relative;
+    top: 0.2em;
+    opacity: 0.7;
+  }
+  .scripture blockquote::before { content: "\201C"; margin-right: 0.1em; }
+  .scripture blockquote::after  { content: "\201D"; margin-left: 0.05em; }
+  .scripture cite {
+    display: block;
+    margin-top: 22px;
+    font-family: var(--serif);
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.foot {
+    background: var(--navy-2);
+    border-top: 1px solid var(--navy-line);
+    padding: 72px 28px 36px;
+    text-align: center;
+    color: var(--ink-dim);
+  }
+  footer.foot .crest-sm {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 22px;
+    display: block;
+    opacity: 0.92;
+  }
+  footer.foot .f-name {
+    font-family: var(--serif);
+    font-size: 16px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 0 0 12px;
+    font-weight: 500;
+  }
+  footer.foot .f-motto {
+    font-family: var(--serif);
+    font-size: 12px;
+    letter-spacing: 0.42em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin: 0 0 18px;
+    text-indent: 0.42em;
+  }
+  footer.foot .f-meta {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-quiet);
+    margin: 0;
+  }
+  footer.foot .f-meta a { color: var(--ink-dim); text-decoration: none; border-bottom: 1px solid var(--navy-line); padding-bottom: 1px; }
+  footer.foot .f-meta a:hover { color: var(--accent); border-color: var(--accent-quiet); }
+  footer.foot .f-rule {
+    width: 80px; height: 1px;
+    background: var(--accent-quiet);
+    opacity: 0.6;
+    margin: 30px auto 24px;
+    border: 0;
+  }
+  footer.foot .colophon {
+    font-family: var(--serif-body);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-quiet);
+    margin: 0;
+  }
+
+  /* ---------- Scroll-in animation ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 700ms ease, transform 700ms ease;
+    will-change: opacity, transform;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ---------- Print ---------- */
+  @media print {
+    body {
+      background: #fff;
+      color: #1a1a1a;
+      font-size: 11pt;
+    }
+    .topbar { display: none; }
+    .hero { padding: 24pt 0; }
+    .hero::before, .hero::after { display: none; }
+    .crest { filter: none; width: 110px; height: 110px; }
+    h1.title, h2.section-title, .person-name, .curr-name, .f-name { color: #18243f; }
+    .motto, .pillar .en, .person-role, .section-num, .about-sign, .scripture cite, .f-motto, .pillar-glyph, .curr-num { color: #af8543; }
+    .motto-en, .section-lede, .pillar p, .person-meta, .person-bio, .curr-desc, .about-prose, .scripture blockquote, .colophon { color: #34373c; }
+    .section { padding: 18pt 0; page-break-inside: avoid; border-top: 1pt solid #ccc; }
+    .person-card, .curr-grid { background: #fff; border-color: #ccc; }
+    .curr-item { border-color: #eee; }
+    .portrait { background: #faf6ec; }
+    .portrait::before { border-color: #c89d4f; }
+    .reveal { opacity: 1; transform: none; }
+    footer.foot { background: #fff; border-color: #ccc; color: #34373c; }
+    @page { margin: 0.6in; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ============================ TOPBAR ============================ -->
+  <header class="topbar" role="banner">
+    <div class="topbar-inner">
+      <a class="topmark" href="#top" aria-label="Lynch Manor Academy — home">
+        <img src="assets/lynch-manor-logo.png" alt="" aria-hidden="true">
+        <span class="name">Lynch Manor <em>Academy</em></span>
+      </a>
+      <nav class="topnav" aria-label="Primary">
+        <a href="#pillars">Pillars</a>
+        <a href="#about">About</a>
+        <a href="/students">Student Portal</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================ HERO ============================== -->
+  <main id="top">
+  <section class="hero" aria-label="Lynch Manor Academy">
+    <div class="wrap">
+      <div class="crest-wrap">
+        <img class="crest" src="assets/lynch-manor-logo.png" alt="Lynch Manor Academy crest">
+      </div>
+      <p class="eyebrow">Established<span class="dot">·</span>MMXXV<span class="dot">·</span>Pennsylvania</p>
+      <h1 class="title">Lynch Manor <span class="gold">Academy</span></h1>
+      <p class="motto">Scientia <span class="sep">·</span> Virtus <span class="sep">·</span> Lumen</p>
+      <p class="motto-en">Knowledge · Virtue · Light</p>
+      <p class="tagline">An independent Christian homeschool program rooted in Pennsylvania.</p>
+    </div>
+  </section>
+
+  <!-- ============================ PILLARS =========================== -->
+  <section class="section" id="pillars" aria-labelledby="pillars-h">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="section-num">I &nbsp;·&nbsp; The Three Pillars</p>
+        <h2 class="section-title" id="pillars-h">A Threefold Foundation</h2>
+        <p class="section-lede">Every lesson at Lynch Manor stands on these three words.</p>
+      </div>
+
+      <div class="pillars">
+        <article class="pillar reveal">
+          <p class="pillar-glyph">I<span class="ornament">✦</span></p>
+          <h3>Scientia</h3>
+          <p class="en">Knowledge</p>
+          <p>Rigorous academics aligned to Pennsylvania Academic Standards, taught with curiosity and real-world connection. A structured 180-day year across reading, writing, math, science, social studies, art, and music.</p>
+        </article>
+
+        <article class="pillar reveal">
+          <p class="pillar-glyph">II<span class="ornament">✦</span></p>
+          <h3>Virtus</h3>
+          <p class="en">Virtue</p>
+          <p>Character formation grounded in a Christian worldview. Each lesson closes with scripture relevant to the day's learning — a foundation of faith built alongside academic excellence.</p>
+        </article>
+
+        <article class="pillar reveal">
+          <p class="pillar-glyph">III<span class="ornament">✦</span></p>
+          <h3>Lumen</h3>
+          <p class="en">Light</p>
+          <p>Hands-on learning drawn from our family flower farm, the seasons, and the world around us. Knowledge becomes wisdom when it meets real life.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ABOUT ============================= -->
+  <section class="section alt" id="about" aria-labelledby="about-h">
+    <div class="wrap narrow">
+      <div class="section-head reveal">
+        <p class="section-num">II &nbsp;·&nbsp; About the Academy</p>
+        <h2 class="section-title" id="about-h">A Home, A Schoolhouse, A Farm</h2>
+      </div>
+      <div class="about-prose reveal">
+        <p>Lynch Manor Academy is the home education program founded by the Lynch family in Pennsylvania. LMA exists to give our children — and the children who follow — a rigorous, faith-rooted education that takes both the classical academic tradition and the real world seriously.</p>
+        <p>Our classroom is part schoolhouse, part flower farm, part kitchen table. We teach by Pennsylvania Academic Standards, integrate a Christian worldview, and build our own curriculum where the best off-the-shelf options fall short.</p>
+      </div>
+      <p class="about-sign reveal"><span class="rule"></span>The Lynch Family<span class="rule"></span></p>
+    </div>
+  </section>
+
+  <!-- ============================ SCRIPTURE ========================= -->
+  <section class="scripture reveal" aria-label="Closing scripture">
+    <blockquote>
+      Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven.
+    </blockquote>
+    <cite>Matthew 5:16</cite>
+  </section>
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="foot" role="contentinfo">
+    <img class="crest-sm" src="assets/lynch-manor-logo.png" alt="Lynch Manor Academy">
+    <p class="f-name">Lynch Manor Academy</p>
+    <p class="f-motto">Scientia <span style="color:var(--accent-quiet);">·</span> Virtus <span style="color:var(--accent-quiet);">·</span> Lumen</p>
+    <p class="f-meta">Pennsylvania &nbsp;·&nbsp; Est. MMXXV &nbsp;·&nbsp; <a href="mailto:hello@lynchmanoracademy.org">hello@lynchmanoracademy.org</a></p>
+    <hr class="f-rule">
+    <p class="colophon">&ldquo;Let your light so shine before men.&rdquo; &nbsp;—&nbsp; Matthew 5:16</p>
+  </footer>
+
+<script>
+  // Subtle fade-in on scroll.
+  (function () {
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  })();
+
+  // Smooth-scroll for in-page anchors (respects reduced motion).
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id.length < 2) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const topbar = document.querySelector('.topbar');
+      const offset = topbar ? topbar.getBoundingClientRect().height : 0;
+      const y = target.getBoundingClientRect().top + window.pageYOffset - offset - 8;
+      window.scrollTo({ top: y, behavior: prefersReduced ? 'auto' : 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
