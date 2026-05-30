@@ -44,6 +44,14 @@ export default async (request: Request, context: Context) => {
   const password = Deno.env.get("STUDENT_PORTAL_PASSWORD") ?? "";
   const expectedToken = password ? await sha256Hex(password + SALT) : "";
 
+  // ===== TEMPORARY DIAGNOSTIC — remove after debugging =====
+  console.log("DIAG env_length:", password.length);
+  console.log("DIAG env_first_code:", password.length > 0 ? password.charCodeAt(0) : "EMPTY");
+  console.log("DIAG env_last_code:", password.length > 0 ? password.charCodeAt(password.length - 1) : "EMPTY");
+  console.log("DIAG method:", request.method);
+  console.log("DIAG path:", url.pathname);
+  // =========================================================
+
   // ---- Logout ---------------------------------------------------------------
   if (url.pathname === "/students/logout") {
     const headers = new Headers();
@@ -70,6 +78,16 @@ export default async (request: Request, context: Context) => {
     } catch {
       submitted = "";
     }
+
+    // ===== TEMPORARY DIAGNOSTIC — remove after debugging =====
+    const submittedHash = await sha256Hex(submitted + SALT);
+    console.log("DIAG submitted_length:", submitted.length);
+    console.log("DIAG submitted_first_code:", submitted.length > 0 ? submitted.charCodeAt(0) : "EMPTY");
+    console.log("DIAG submitted_last_code:", submitted.length > 0 ? submitted.charCodeAt(submitted.length - 1) : "EMPTY");
+    console.log("DIAG hashes_match:", submittedHash === expectedToken);
+    console.log("DIAG expectedToken_length:", expectedToken.length);
+    console.log("DIAG submittedHash_length:", submittedHash.length);
+    // =========================================================
 
     if (
       expectedToken &&
