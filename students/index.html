@@ -69,67 +69,45 @@
   .verse{ font-family:var(--serif-body); font-style:italic; font-size:clamp(16px,1.9vw,19px); color:var(--ink); max-width:46ch; margin:0 auto; line-height:1.5; }
   .verse cite{ display:block; margin-top:8px; font-family:var(--serif); font-style:normal; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--accent); }
 
-  /* ---------- Split layout ---------- */
-  .split{ display:grid; grid-template-columns:1fr 1fr; gap:0; position:relative; padding-bottom:40px; }
-  .split::before{ content:""; position:absolute; top:36px; bottom:60px; left:50%; width:1px;
-    background:linear-gradient(to bottom,transparent,var(--accent-quiet) 12%,var(--accent-quiet) 88%,transparent); opacity:0.5; }
-  @media (max-width:768px){ .split{ grid-template-columns:1fr; } .split::before{ display:none; } }
+  /* ---------- Itinerary section ---------- */
+  .itin-wrap{ padding:8px 0 56px; }
+  .itin-weekhead{ text-align:center; margin:0 0 40px; }
+  .itin-weekhead .num{ font-family:var(--serif); font-size:12px; letter-spacing:0.32em; text-transform:uppercase; color:var(--accent); font-weight:500; margin:0 0 12px; }
+  .itin-weekhead .num::before, .itin-weekhead .num::after{ content:""; display:inline-block; width:26px; height:1px; background:var(--accent-quiet); vertical-align:middle; margin:0 14px; opacity:0.7; }
+  .itin-weekhead h2{ font-family:var(--serif); font-weight:500; font-size:clamp(22px,3vw,30px); letter-spacing:0.06em; color:var(--ink); margin:0 0 8px; }
+  .itin-weekhead .range{ font-family:var(--serif-body); font-style:italic; font-size:18px; color:var(--ink-dim); margin:0; }
 
-  .column{ padding:48px 40px 24px; }
-  .column.left{ padding-right:52px; }
-  .column.right{ padding-left:52px; }
-  @media (max-width:768px){
-    .column{ padding:40px 4px 8px; }
-    .column.left{ padding-right:4px; }
-    .column.right{ padding-left:4px; border-top:1px solid rgba(45,58,92,0.6); margin-top:8px; padding-top:48px; }
-  }
+  .itin-card{ background:var(--navy-2); border:1px solid var(--navy-line); border-left:4px solid var(--accent); border-radius:6px;
+    padding:26px 28px 28px; margin-bottom:30px; position:relative; }
+  .itin-cardhead{ display:flex; align-items:center; gap:16px; margin-bottom:22px; padding-bottom:18px; border-bottom:1px solid rgba(45,58,92,0.6); }
+  .itin-mono{ width:54px; height:54px; border-radius:50%; background:var(--navy); border:1px solid var(--navy-line); flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; position:relative; }
+  .itin-mono::before{ content:""; position:absolute; inset:4px; border-radius:50%; border:1px solid var(--accent-quiet); opacity:0.5; }
+  .itin-mono span{ font-family:var(--serif); font-size:23px; font-weight:500; color:var(--accent); line-height:1; }
+  .itin-cardhead .who h3{ font-family:var(--serif); font-weight:500; font-size:24px; letter-spacing:0.05em; color:var(--ink); margin:0 0 3px; }
+  .itin-cardhead .who .meta{ font-family:var(--sans); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); font-weight:600; margin:0; }
 
-  /* student header */
-  .student-head{ text-align:center; margin-bottom:40px; }
-  .monogram{ width:84px; height:84px; border-radius:50%; background:var(--navy-2); border:1px solid var(--navy-line);
-    display:flex; align-items:center; justify-content:center; margin:0 auto 18px; position:relative; }
-  .monogram::before{ content:""; position:absolute; inset:4px; border-radius:50%; border:1px solid var(--accent-quiet); opacity:0.55; }
-  .monogram span{ font-family:var(--serif); font-size:32px; font-weight:500; color:var(--accent); line-height:1; }
-  .student-name{ font-family:var(--serif); font-weight:500; font-size:30px; letter-spacing:0.06em; margin:0 0 8px; color:var(--ink); }
-  .student-sub{ font-family:var(--sans); font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent); font-weight:600; margin:0; }
+  .itin-grid{ display:grid; grid-template-columns:repeat(5, 1fr); gap:12px; }
+  @media (max-width:900px){ .itin-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .itin-grid{ grid-template-columns:1fr; } }
 
-  /* section blocks */
-  .block{ margin-bottom:34px; }
-  .block-head{ display:flex; align-items:baseline; gap:12px; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid rgba(45,58,92,0.6); }
-  .block-num{ font-family:var(--serif); font-size:12px; letter-spacing:0.14em; color:var(--accent); font-weight:500; flex-shrink:0; }
-  .block-title{ font-family:var(--serif); font-weight:500; font-size:15px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink); margin:0; }
+  .itin-day{ background:rgba(13,20,36,0.45); border:1px solid var(--navy-line); border-radius:5px; padding:13px 13px 6px; min-width:0; }
+  .itin-day.is-today{ border-color:var(--accent); box-shadow:0 0 0 1px var(--accent) inset, 0 6px 20px rgba(0,0,0,0.25); background:rgba(233,180,100,0.05); }
+  .itin-day-head{ font-family:var(--serif); font-weight:500; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink); margin:0 0 2px; }
+  .itin-day.is-today .itin-day-head{ color:var(--accent); }
+  .itin-day-date{ font-family:var(--sans); font-size:10.5px; letter-spacing:0.04em; color:var(--ink-quiet); margin:0 0 11px; padding-bottom:9px; border-bottom:1px solid rgba(45,58,92,0.5); }
+  .itin-day-date .todaytag{ color:var(--accent); font-weight:700; letter-spacing:0.1em; }
 
-  .card{ background:var(--navy-2); border:1px solid var(--navy-line); border-radius:5px; padding:22px 24px; position:relative; }
-  .card + .card{ margin-top:12px; }
-  .subject-tag{ display:inline-block; font-family:var(--sans); font-size:10px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; color:var(--accent); margin:0 0 8px; }
-  .card h4{ font-family:var(--serif); font-weight:500; font-size:19px; letter-spacing:0.03em; margin:0 0 8px; color:var(--ink); }
-  .card p.desc{ font-family:var(--serif-body); font-size:17px; line-height:1.5; color:var(--ink-dim); margin:0; }
-  .pending{ color:var(--ink-quiet); font-style:italic; }
+  .itin-lesson{ padding:7px 0; border-bottom:1px dashed rgba(45,58,92,0.55); }
+  .itin-lesson:last-child{ border-bottom:0; }
+  .itin-subj{ font-family:var(--sans); font-size:9.5px; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; color:var(--accent); line-height:1.3; margin-bottom:2px; }
+  .itin-title{ font-family:var(--serif-body); font-size:15.5px; line-height:1.32; color:var(--ink); }
+  .itin-lesson.muted .itin-subj{ color:var(--ink-quiet); }
+  .itin-lesson.muted .itin-title{ color:var(--ink-dim); font-style:italic; }
+  .itin-tbd .itin-title{ color:var(--ink-quiet); font-style:italic; }
 
-  /* homework list */
-  ul.todo{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0; }
-  ul.todo li{ display:flex; gap:13px; align-items:flex-start; padding:13px 0; border-bottom:1px solid rgba(45,58,92,0.45); }
-  ul.todo li:last-child{ border-bottom:0; }
-  .checkbox{ width:18px; height:18px; border:1.5px solid var(--accent-quiet); border-radius:3px; flex-shrink:0; margin-top:3px; }
-  .task{ flex:1; }
-  .task .t{ display:block; font-family:var(--sans); font-size:15.5px; color:var(--ink); line-height:1.45; }
-  .task .due{ display:block; font-family:var(--sans); font-size:12px; color:var(--ink-quiet); letter-spacing:0.04em; margin-top:3px; text-transform:uppercase; }
-
-  /* recent work */
-  .work{ display:flex; gap:18px; align-items:center; }
-  .work .thumb{ width:64px; height:64px; border-radius:4px; background:var(--navy); border:1px solid var(--navy-line); flex-shrink:0;
-    display:flex; align-items:center; justify-content:center; overflow:hidden; }
-  .work .thumb img{ width:42px; height:42px; opacity:0.9; }
-  .work .meta h4{ margin:0 0 5px; }
-  .work .meta .when{ font-family:var(--serif-body); font-style:italic; font-size:15px; color:var(--ink-quiet); }
-
-  /* note from parents */
-  .note{ background:linear-gradient(180deg,rgba(31,42,68,0.7),rgba(26,37,63,0.9)); border:1px solid var(--navy-line);
-    border-radius:5px; padding:26px 26px 24px; text-align:center; position:relative; }
-  .note::before{ content:""; position:absolute; top:-1px; left:24px; right:24px; height:2px; background:var(--accent); opacity:0.7; }
-  .note .orn{ color:var(--accent-quiet); font-size:13px; letter-spacing:0.3em; margin:0 0 10px; }
-  .note p{ font-family:var(--serif-body); font-style:italic; font-size:18.5px; line-height:1.55; color:var(--ink); margin:0; }
-  .note .sign{ display:block; margin-top:12px; font-style:normal; font-family:var(--serif); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); }
+  .itin-empty{ text-align:center; padding:40px 20px; font-family:var(--serif-body); font-style:italic; font-size:17px; color:var(--ink-quiet); }
+  .itin-foot{ text-align:center; margin:6px 0 0; font-family:var(--sans); font-size:11px; letter-spacing:0.1em; color:var(--ink-quiet); }
 
   /* ---------- Footer ---------- */
   footer{ border-top:1px solid var(--navy-line); background:var(--navy-2); text-align:center; padding:48px 28px 40px; }
@@ -172,115 +150,25 @@
     </div>
   </section>
 
-  <!-- ===================== SPLIT ===================== -->
+  <!-- ===================== ITINERARY ===================== -->
   <div class="wrap">
-    <div class="split">
-
-      <!-- ===== SAVANNAH ===== -->
-      <section class="column left" aria-labelledby="savannah-h">
-        <div class="student-head">
-          <div class="monogram" aria-hidden="true"><span>S</span></div>
-          <h2 class="student-name" id="savannah-h">Savannah</h2>
-          <p class="student-sub">Grade I &middot; Student</p>
-        </div>
-
-        <div class="block">
-          <div class="block-head"><span class="block-num">I</span><h3 class="block-title">Today&rsquo;s Lesson</h3></div>
-          <div class="card">
-            <span class="subject-tag">Mathematics</span>
-            <h4 class="pending">To be posted</h4>
-            <p class="desc pending">Check back at 9:00 AM for today&rsquo;s math lesson.</p>
-          </div>
-        </div>
-
-        <div class="block">
-          <div class="block-head"><span class="block-num">II</span><h3 class="block-title">Homework</h3></div>
-          <div class="card">
-            <ul class="todo">
-              <li><span class="checkbox" aria-hidden="true"></span><span class="task"><span class="t">Complete Hooked on Phonics, Lesson 17</span><span class="due">Due Friday</span></span></li>
-              <li><span class="checkbox" aria-hidden="true"></span><span class="task"><span class="t">Read one picture book aloud to Collin</span><span class="due">Due Thursday</span></span></li>
-              <li><span class="checkbox" aria-hidden="true"></span><span class="task"><span class="t">Math worksheet &mdash; counting by fives</span><span class="due">Due tomorrow</span></span></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="block">
-          <div class="block-head"><span class="block-num">III</span><h3 class="block-title">Recent Work</h3></div>
-          <div class="card">
-            <div class="work">
-              <div class="thumb"><img src="../assets/lynch-manor-logo.png" alt=""></div>
-              <div class="meta">
-                <span class="subject-tag">Science</span>
-                <h4>Spring Wildflowers of Pennsylvania</h4>
-                <p class="when">Completed last Thursday</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="block">
-          <div class="block-head"><span class="block-num">IV</span><h3 class="block-title">A Note from Mom &amp; Dad</h3></div>
-          <div class="note">
-            <p class="orn">&#10022;</p>
-            <p>Great job working through your phonics this week, sweet girl. You are growing into such a careful reader. We&rsquo;re proud of you.<span class="sign">&mdash; Love, Mom &amp; Dad</span></p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== COLLIN ===== -->
-      <section class="column right" aria-labelledby="collin-h">
-        <div class="student-head">
-          <div class="monogram" aria-hidden="true"><span>C</span></div>
-          <h2 class="student-name" id="collin-h">Collin</h2>
-          <p class="student-sub">Kindergarten &middot; Student</p>
-        </div>
-
-        <div class="block">
-          <div class="block-head"><span class="block-num">I</span><h3 class="block-title">Today&rsquo;s Lesson</h3></div>
-          <div class="card">
-            <span class="subject-tag">Reading</span>
-            <h4 class="pending">To be posted</h4>
-            <p class="desc pending">Check back at 9:00 AM for today&rsquo;s reading lesson.</p>
-          </div>
-        </div>
-
-        <div class="block">
-          <div class="block-head"><span class="block-num">II</span><h3 class="block-title">Homework</h3></div>
-          <div class="card">
-            <ul class="todo">
-              <li><span class="checkbox" aria-hidden="true"></span><span class="task"><span class="t">Practice deskbells &mdash; Prodigies app</span><span class="due">10 minutes daily</span></span></li>
-              <li><span class="checkbox" aria-hidden="true"></span><span class="task"><span class="t">Letter tracing &mdash; lowercase b, d, p, q</span><span class="due">Due Friday</span></span></li>
-              <li><span class="checkbox" aria-hidden="true"></span><span class="task"><span class="t">Count and sort the seed packets</span><span class="due">Due tomorrow</span></span></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="block">
-          <div class="block-head"><span class="block-num">III</span><h3 class="block-title">Recent Work</h3></div>
-          <div class="card">
-            <div class="work">
-              <div class="thumb"><img src="../assets/lynch-manor-logo.png" alt=""></div>
-              <div class="meta">
-                <span class="subject-tag">Music</span>
-                <h4>First Five Notes on the Deskbells</h4>
-                <p class="when">Completed Monday</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="block">
-          <div class="block-head"><span class="block-num">IV</span><h3 class="block-title">A Note from Mom &amp; Dad</h3></div>
-          <div class="note">
-            <p class="orn">&#10022;</p>
-            <p>You worked so hard and so quietly this week, buddy. We love watching you figure things out all on your own. Keep shining.<span class="sign">&mdash; Love, Mom &amp; Dad</span></p>
-          </div>
-        </div>
-      </section>
-
+    <div class="itin-wrap">
+      <div class="itin-weekhead">
+        <p class="num">I &nbsp;&middot;&nbsp; Weekly Itinerary</p>
+        <h2 id="itin-title">This Week&rsquo;s Lessons</h2>
+        <p class="range" id="itin-range">&nbsp;</p>
+      </div>
+      <div id="itinerary-root" aria-live="polite">
+        <p class="itin-empty">Loading this week&rsquo;s lessons&hellip;</p>
+      </div>
+      <p class="itin-foot">Lessons import from the LMA Planner &middot; updated weekly</p>
     </div>
   </div>
   </main>
+
+  <!-- Fallback data: embedded copy of the current week, used if itinerary.json
+       can't be fetched. The live source of truth is students/itinerary.json. -->
+  <script type="application/json" id="itinerary-fallback">{"school":"Lynch Manor Academy","schoolYear":"2025–2026","weekStart":"2026-06-01","weekEnd":"2026-06-05","weekLabel":"Week of June 1, 2026 – June 5, 2026","generatedAt":"2026-05-31T16:27:54.905Z","students":[{"name":"Collin","grade":"Kindergarten","days":[{"day":"Monday","date":"2026-06-01","dateLabel":"June 1, 2026","dayNumber":172,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"(to be determined)"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"(to be determined)"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"(to be determined)"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"Telling Time: Hour & Half-Hour"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Chicken Patty Sandwich"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"The Science of Wildfires"},{"time":"2:30p","period":"Seventh Period","subject":"Art or Music","title":"Teacher's Choice"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]},{"day":"Tuesday","date":"2026-06-02","dateLabel":"June 2, 2026","dayNumber":173,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"(to be determined)"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"(to be determined)"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"(to be determined)"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"(to be determined)"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Breakfast Sandwich"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"Meet the Founding Fathers"},{"time":"2:30p","period":"Seventh Period","subject":"Music","title":"Prodigees Music Lesson"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]},{"day":"Wednesday","date":"2026-06-03","dateLabel":"June 3, 2026","dayNumber":174,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"(to be determined)"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"(to be determined)"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"(to be determined)"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"(to be determined)"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Bean & Cheese Burritos"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"What makes it rain"},{"time":"2:30p","period":"Seventh Period","subject":"Art or Music","title":"Teacher's Choice"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]},{"day":"Thursday","date":"2026-06-04","dateLabel":"June 4, 2026","dayNumber":175,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"(to be determined)"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"(to be determined)"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"(to be determined)"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"(to be determined)"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Ham & Cheese Roll-Ups"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"World Cup 2026"},{"time":"2:30p","period":"Seventh Period","subject":"Music","title":"Prodigees Music Lesson"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]},{"day":"Friday","date":"2026-06-05","dateLabel":"June 5, 2026","dayNumber":176,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"(to be determined)"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"(to be determined)"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"(to be determined)"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"(to be determined)"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Hamburger Sliders"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"Weather and our weather station"},{"time":"2:30p","period":"Seventh Period","subject":"Art or Music","title":"Teacher's Choice"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]}]},{"name":"Savannah","grade":"1st Grade","days":[{"day":"Monday","date":"2026-06-01","dateLabel":"June 1, 2026","dayNumber":172,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"Introduce new spelling words"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"Read book of choice"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"Author's Workshop Day 1 of 9"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"Telling Time: Hour & Half-Hour"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Chicken Patty Sandwich"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"The Science of Wildfires"},{"time":"2:30p","period":"Seventh Period","subject":"Art or Music","title":"Teacher's Choice"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]},{"day":"Tuesday","date":"2026-06-02","dateLabel":"June 2, 2026","dayNumber":173,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"Weekly spelling words"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"Read book of choice"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"Author's Workshop Day 2 of 9"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"Measuring & Comparing Length"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Breakfast Sandwich"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"Meet the Founding Fathers"},{"time":"2:30p","period":"Seventh Period","subject":"Music","title":"Prodigees Music Lesson"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]},{"day":"Wednesday","date":"2026-06-03","dateLabel":"June 3, 2026","dayNumber":174,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"Weekly spelling words"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"Read book of choice"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"Author's Workshop Day 3 of 9"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"Skip Counting by 2s, 5s, 10s"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Bean & Cheese Burritos"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"What makes it rain"},{"time":"2:30p","period":"Seventh Period","subject":"Art or Music","title":"Teacher's Choice"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]},{"day":"Thursday","date":"2026-06-04","dateLabel":"June 4, 2026","dayNumber":175,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"Weekly spelling words"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"Read book of choice"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"Author's Workshop Day 4 of 9"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"Comparing Numbers to 120 (>, <, =)"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Ham & Cheese Roll-Ups"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"World Cup 2026"},{"time":"2:30p","period":"Seventh Period","subject":"Music","title":"Prodigees Music Lesson"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]},{"day":"Friday","date":"2026-06-05","dateLabel":"June 5, 2026","dayNumber":176,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"Weekly spelling words"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"Read book of choice"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"Author's Workshop Day 5 of 9"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"End-of-Year \"Math Olympics\" Review"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Hamburger Sliders"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"Weather and our weather station"},{"time":"2:30p","period":"Seventh Period","subject":"Art or Music","title":"Teacher's Choice"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]}]}]}</script>
 
   <!-- ===================== FOOTER ===================== -->
   <footer role="contentinfo">
@@ -341,6 +229,102 @@
       el.querySelector('.vcite').textContent = pick[1];
     }
   })();
+
+  // ---- Weekly Itinerary: fetch JSON (source of truth) and render ----
+  // David re-exports from the LMA Planner and replaces students/itinerary.json
+  // each week. If the fetch fails, we fall back to the embedded copy below.
+  (function () {
+    var root = document.getElementById('itinerary-root');
+    if (!root) return;
+
+    function todayISO() {
+      var d = new Date();
+      var m = String(d.getMonth() + 1).padStart(2, '0');
+      var day = String(d.getDate()).padStart(2, '0');
+      return d.getFullYear() + '-' + m + '-' + day;
+    }
+    var TODAY = todayISO();
+
+    function esc(s) {
+      return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+    function isMuted(subject) {
+      var s = (subject || '').toLowerCase();
+      return s.indexOf('lunch') !== -1 || s.indexOf('recess') !== -1 ||
+             s.indexOf('clean-up') !== -1 || s.indexOf('snack') !== -1;
+    }
+    function isTBD(title) {
+      var t = (title || '').toLowerCase();
+      return t.indexOf('to be determined') !== -1 || t === '(tbd)' || t === 'tbd';
+    }
+
+    function render(data) {
+      if (!data || !Array.isArray(data.students) || !data.students.length) {
+        root.innerHTML = '<p class="itin-empty">This week&rsquo;s lessons haven&rsquo;t been posted yet. Check back soon.</p>';
+        return;
+      }
+
+      // Week header
+      var titleEl = document.getElementById('itin-title');
+      var rangeEl = document.getElementById('itin-range');
+      if (rangeEl && data.weekLabel) rangeEl.textContent = data.weekLabel;
+      if (titleEl) titleEl.textContent = 'This Week\u2019s Lessons';
+
+      var html = '';
+      data.students.forEach(function (stu) {
+        var initial = esc((stu.name || '?').charAt(0));
+        var grade = esc(stu.grade || '');
+        html += '<section class="itin-card" aria-label="' + esc(stu.name) + '\u2019s weekly itinerary">';
+        html += '<div class="itin-cardhead">';
+        html += '<div class="itin-mono" aria-hidden="true"><span>' + initial + '</span></div>';
+        html += '<div class="who"><h3>' + esc(stu.name) + '</h3><p class="meta">' + grade + ' &middot; Student</p></div>';
+        html += '</div>';
+        html += '<div class="itin-grid">';
+
+        (stu.days || []).forEach(function (day) {
+          var today = day.date === TODAY;
+          html += '<div class="itin-day' + (today ? ' is-today' : '') + '">';
+          html += '<p class="itin-day-head">' + esc(day.day) + '</p>';
+          var dateLine = esc(day.dateLabel || '');
+          if (day.dayNumber) dateLine += ' &middot; Day ' + esc(day.dayNumber);
+          if (today) dateLine += ' <span class="todaytag">&mdash; Today</span>';
+          html += '<p class="itin-day-date">' + dateLine + '</p>';
+
+          (day.schedule || []).forEach(function (lesson) {
+            var cls = 'itin-lesson';
+            if (isMuted(lesson.subject)) cls += ' muted';
+            if (isTBD(lesson.title)) cls += ' itin-tbd';
+            html += '<div class="' + cls + '">';
+            html += '<div class="itin-subj">' + esc(lesson.subject || lesson.period || '') + '</div>';
+            html += '<div class="itin-title">' + esc(lesson.title || '') + '</div>';
+            html += '</div>';
+          });
+
+          html += '</div>';
+        });
+
+        html += '</div></section>';
+      });
+
+      root.innerHTML = html;
+    }
+
+    function loadFallback() {
+      try {
+        var raw = document.getElementById('itinerary-fallback').textContent;
+        render(JSON.parse(raw));
+      } catch (e) {
+        root.innerHTML = '<p class="itin-empty">This week&rsquo;s lessons haven&rsquo;t been posted yet. Check back soon.</p>';
+      }
+    }
+
+    fetch('itinerary.json', { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('status ' + r.status); return r.json(); })
+      .then(function (data) { render(data); })
+      .catch(function () { loadFallback(); });
+  })();
+
 </script>
 </body>
 </html>

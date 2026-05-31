@@ -1,0 +1,642 @@
+{
+  "school": "Lynch Manor Academy",
+  "schoolYear": "2025–2026",
+  "weekStart": "2026-06-01",
+  "weekEnd": "2026-06-05",
+  "weekLabel": "Week of June 1, 2026 – June 5, 2026",
+  "generatedAt": "2026-05-31T16:27:54.905Z",
+  "students": [
+    {
+      "name": "Collin",
+      "grade": "Kindergarten",
+      "days": [
+        {
+          "day": "Monday",
+          "date": "2026-06-01",
+          "dateLabel": "June 1, 2026",
+          "dayNumber": 172,
+          "schedule": [
+            {
+              "time": "10:00a",
+              "period": "First Period",
+              "subject": "Morning Huddle",
+              "title": "Calendar and Weather"
+            },
+            {
+              "time": "10:30a",
+              "period": "Second Period",
+              "subject": "Spelling / Phonics",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "11:00a",
+              "period": "Third Period",
+              "subject": "Reading",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "11:30a",
+              "period": "Fourth Period",
+              "subject": "Writing",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "12:00p",
+              "period": "Fifth Period",
+              "subject": "Math",
+              "title": "Telling Time: Hour & Half-Hour"
+            },
+            {
+              "time": "12:30p",
+              "period": "Lunch / Recess",
+              "subject": "Lunch / Recess",
+              "title": "Chicken Patty Sandwich"
+            },
+            {
+              "time": "2:00p",
+              "period": "Sixth Period",
+              "subject": "Science or Social Studies",
+              "title": "The Science of Wildfires"
+            },
+            {
+              "time": "2:30p",
+              "period": "Seventh Period",
+              "subject": "Art or Music",
+              "title": "Teacher's Choice"
+            },
+            {
+              "time": "3:00p",
+              "period": "Eighth Period",
+              "subject": "Clean-up / Snack / Reading",
+              "title": "Clean-up / Snack / Reading"
+            }
+          ]
+        },
+        {
+          "day": "Tuesday",
+          "date": "2026-06-02",
+          "dateLabel": "June 2, 2026",
+          "dayNumber": 173,
+          "schedule": [
+            {
+              "time": "10:00a",
+              "period": "First Period",
+              "subject": "Morning Huddle",
+              "title": "Calendar and Weather"
+            },
+            {
+              "time": "10:30a",
+              "period": "Second Period",
+              "subject": "Spelling / Phonics",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "11:00a",
+              "period": "Third Period",
+              "subject": "Reading",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "11:30a",
+              "period": "Fourth Period",
+              "subject": "Writing",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "12:00p",
+              "period": "Fifth Period",
+              "subject": "Math",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "12:30p",
+              "period": "Lunch / Recess",
+              "subject": "Lunch / Recess",
+              "title": "Breakfast Sandwich"
+            },
+            {
+              "time": "2:00p",
+              "period": "Sixth Period",
+              "subject": "Science or Social Studies",
+              "title": "Meet the Founding Fathers"
+            },
+            {
+              "time": "2:30p",
+              "period": "Seventh Period",
+              "subject": "Music",
+              "title": "Prodigees Music Lesson"
+            },
+            {
+              "time": "3:00p",
+              "period": "Eighth Period",
+              "subject": "Clean-up / Snack / Reading",
+              "title": "Clean-up / Snack / Reading"
+            }
+          ]
+        },
+        {
+          "day": "Wednesday",
+          "date": "2026-06-03",
+          "dateLabel": "June 3, 2026",
+          "dayNumber": 174,
+          "schedule": [
+            {
+              "time": "10:00a",
+              "period": "First Period",
+              "subject": "Morning Huddle",
+              "title": "Calendar and Weather"
+            },
+            {
+              "time": "10:30a",
+              "period": "Second Period",
+              "subject": "Spelling / Phonics",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "11:00a",
+              "period": "Third Period",
+              "subject": "Reading",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "11:30a",
+              "period": "Fourth Period",
+              "subject": "Writing",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "12:00p",
+              "period": "Fifth Period",
+              "subject": "Math",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "12:30p",
+              "period": "Lunch / Recess",
+              "subject": "Lunch / Recess",
+              "title": "Bean & Cheese Burritos"
+            },
+            {
+              "time": "2:00p",
+              "period": "Sixth Period",
+              "subject": "Science or Social Studies",
+              "title": "What makes it rain"
+            },
+            {
+              "time": "2:30p",
+              "period": "Seventh Period",
+              "subject": "Art or Music",
+              "title": "Teacher's Choice"
+            },
+            {
+              "time": "3:00p",
+              "period": "Eighth Period",
+              "subject": "Clean-up / Snack / Reading",
+              "title": "Clean-up / Snack / Reading"
+            }
+          ]
+        },
+        {
+          "day": "Thursday",
+          "date": "2026-06-04",
+          "dateLabel": "June 4, 2026",
+          "dayNumber": 175,
+          "schedule": [
+            {
+              "time": "10:00a",
+              "period": "First Period",
+              "subject": "Morning Huddle",
+              "title": "Calendar and Weather"
+            },
+            {
+              "time": "10:30a",
+              "period": "Second Period",
+              "subject": "Spelling / Phonics",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "11:00a",
+              "period": "Third Period",
+              "subject": "Reading",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "11:30a",
+              "period": "Fourth Period",
+              "subject": "Writing",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "12:00p",
+              "period": "Fifth Period",
+              "subject": "Math",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "12:30p",
+              "period": "Lunch / Recess",
+              "subject": "Lunch / Recess",
+              "title": "Ham & Cheese Roll-Ups"
+            },
+            {
+              "time": "2:00p",
+              "period": "Sixth Period",
+              "subject": "Science or Social Studies",
+              "title": "World Cup 2026"
+            },
+            {
+              "time": "2:30p",
+              "period": "Seventh Period",
+              "subject": "Music",
+              "title": "Prodigees Music Lesson"
+            },
+            {
+              "time": "3:00p",
+              "period": "Eighth Period",
+              "subject": "Clean-up / Snack / Reading",
+              "title": "Clean-up / Snack / Reading"
+            }
+          ]
+        },
+        {
+          "day": "Friday",
+          "date": "2026-06-05",
+          "dateLabel": "June 5, 2026",
+          "dayNumber": 176,
+          "schedule": [
+            {
+              "time": "10:00a",
+              "period": "First Period",
+              "subject": "Morning Huddle",
+              "title": "Calendar and Weather"
+            },
+            {
+              "time": "10:30a",
+              "period": "Second Period",
+              "subject": "Spelling / Phonics",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "11:00a",
+              "period": "Third Period",
+              "subject": "Reading",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "11:30a",
+              "period": "Fourth Period",
+              "subject": "Writing",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "12:00p",
+              "period": "Fifth Period",
+              "subject": "Math",
+              "title": "(to be determined)"
+            },
+            {
+              "time": "12:30p",
+              "period": "Lunch / Recess",
+              "subject": "Lunch / Recess",
+              "title": "Hamburger Sliders"
+            },
+            {
+              "time": "2:00p",
+              "period": "Sixth Period",
+              "subject": "Science or Social Studies",
+              "title": "Weather and our weather station"
+            },
+            {
+              "time": "2:30p",
+              "period": "Seventh Period",
+              "subject": "Art or Music",
+              "title": "Teacher's Choice"
+            },
+            {
+              "time": "3:00p",
+              "period": "Eighth Period",
+              "subject": "Clean-up / Snack / Reading",
+              "title": "Clean-up / Snack / Reading"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Savannah",
+      "grade": "1st Grade",
+      "days": [
+        {
+          "day": "Monday",
+          "date": "2026-06-01",
+          "dateLabel": "June 1, 2026",
+          "dayNumber": 172,
+          "schedule": [
+            {
+              "time": "10:00a",
+              "period": "First Period",
+              "subject": "Morning Huddle",
+              "title": "Calendar and Weather"
+            },
+            {
+              "time": "10:30a",
+              "period": "Second Period",
+              "subject": "Spelling / Phonics",
+              "title": "Introduce new spelling words"
+            },
+            {
+              "time": "11:00a",
+              "period": "Third Period",
+              "subject": "Reading",
+              "title": "Read book of choice"
+            },
+            {
+              "time": "11:30a",
+              "period": "Fourth Period",
+              "subject": "Writing",
+              "title": "Author's Workshop Day 1 of 9"
+            },
+            {
+              "time": "12:00p",
+              "period": "Fifth Period",
+              "subject": "Math",
+              "title": "Telling Time: Hour & Half-Hour"
+            },
+            {
+              "time": "12:30p",
+              "period": "Lunch / Recess",
+              "subject": "Lunch / Recess",
+              "title": "Chicken Patty Sandwich"
+            },
+            {
+              "time": "2:00p",
+              "period": "Sixth Period",
+              "subject": "Science or Social Studies",
+              "title": "The Science of Wildfires"
+            },
+            {
+              "time": "2:30p",
+              "period": "Seventh Period",
+              "subject": "Art or Music",
+              "title": "Teacher's Choice"
+            },
+            {
+              "time": "3:00p",
+              "period": "Eighth Period",
+              "subject": "Clean-up / Snack / Reading",
+              "title": "Clean-up / Snack / Reading"
+            }
+          ]
+        },
+        {
+          "day": "Tuesday",
+          "date": "2026-06-02",
+          "dateLabel": "June 2, 2026",
+          "dayNumber": 173,
+          "schedule": [
+            {
+              "time": "10:00a",
+              "period": "First Period",
+              "subject": "Morning Huddle",
+              "title": "Calendar and Weather"
+            },
+            {
+              "time": "10:30a",
+              "period": "Second Period",
+              "subject": "Spelling / Phonics",
+              "title": "Weekly spelling words"
+            },
+            {
+              "time": "11:00a",
+              "period": "Third Period",
+              "subject": "Reading",
+              "title": "Read book of choice"
+            },
+            {
+              "time": "11:30a",
+              "period": "Fourth Period",
+              "subject": "Writing",
+              "title": "Author's Workshop Day 2 of 9"
+            },
+            {
+              "time": "12:00p",
+              "period": "Fifth Period",
+              "subject": "Math",
+              "title": "Measuring & Comparing Length"
+            },
+            {
+              "time": "12:30p",
+              "period": "Lunch / Recess",
+              "subject": "Lunch / Recess",
+              "title": "Breakfast Sandwich"
+            },
+            {
+              "time": "2:00p",
+              "period": "Sixth Period",
+              "subject": "Science or Social Studies",
+              "title": "Meet the Founding Fathers"
+            },
+            {
+              "time": "2:30p",
+              "period": "Seventh Period",
+              "subject": "Music",
+              "title": "Prodigees Music Lesson"
+            },
+            {
+              "time": "3:00p",
+              "period": "Eighth Period",
+              "subject": "Clean-up / Snack / Reading",
+              "title": "Clean-up / Snack / Reading"
+            }
+          ]
+        },
+        {
+          "day": "Wednesday",
+          "date": "2026-06-03",
+          "dateLabel": "June 3, 2026",
+          "dayNumber": 174,
+          "schedule": [
+            {
+              "time": "10:00a",
+              "period": "First Period",
+              "subject": "Morning Huddle",
+              "title": "Calendar and Weather"
+            },
+            {
+              "time": "10:30a",
+              "period": "Second Period",
+              "subject": "Spelling / Phonics",
+              "title": "Weekly spelling words"
+            },
+            {
+              "time": "11:00a",
+              "period": "Third Period",
+              "subject": "Reading",
+              "title": "Read book of choice"
+            },
+            {
+              "time": "11:30a",
+              "period": "Fourth Period",
+              "subject": "Writing",
+              "title": "Author's Workshop Day 3 of 9"
+            },
+            {
+              "time": "12:00p",
+              "period": "Fifth Period",
+              "subject": "Math",
+              "title": "Skip Counting by 2s, 5s, 10s"
+            },
+            {
+              "time": "12:30p",
+              "period": "Lunch / Recess",
+              "subject": "Lunch / Recess",
+              "title": "Bean & Cheese Burritos"
+            },
+            {
+              "time": "2:00p",
+              "period": "Sixth Period",
+              "subject": "Science or Social Studies",
+              "title": "What makes it rain"
+            },
+            {
+              "time": "2:30p",
+              "period": "Seventh Period",
+              "subject": "Art or Music",
+              "title": "Teacher's Choice"
+            },
+            {
+              "time": "3:00p",
+              "period": "Eighth Period",
+              "subject": "Clean-up / Snack / Reading",
+              "title": "Clean-up / Snack / Reading"
+            }
+          ]
+        },
+        {
+          "day": "Thursday",
+          "date": "2026-06-04",
+          "dateLabel": "June 4, 2026",
+          "dayNumber": 175,
+          "schedule": [
+            {
+              "time": "10:00a",
+              "period": "First Period",
+              "subject": "Morning Huddle",
+              "title": "Calendar and Weather"
+            },
+            {
+              "time": "10:30a",
+              "period": "Second Period",
+              "subject": "Spelling / Phonics",
+              "title": "Weekly spelling words"
+            },
+            {
+              "time": "11:00a",
+              "period": "Third Period",
+              "subject": "Reading",
+              "title": "Read book of choice"
+            },
+            {
+              "time": "11:30a",
+              "period": "Fourth Period",
+              "subject": "Writing",
+              "title": "Author's Workshop Day 4 of 9"
+            },
+            {
+              "time": "12:00p",
+              "period": "Fifth Period",
+              "subject": "Math",
+              "title": "Comparing Numbers to 120 (>, <, =)"
+            },
+            {
+              "time": "12:30p",
+              "period": "Lunch / Recess",
+              "subject": "Lunch / Recess",
+              "title": "Ham & Cheese Roll-Ups"
+            },
+            {
+              "time": "2:00p",
+              "period": "Sixth Period",
+              "subject": "Science or Social Studies",
+              "title": "World Cup 2026"
+            },
+            {
+              "time": "2:30p",
+              "period": "Seventh Period",
+              "subject": "Music",
+              "title": "Prodigees Music Lesson"
+            },
+            {
+              "time": "3:00p",
+              "period": "Eighth Period",
+              "subject": "Clean-up / Snack / Reading",
+              "title": "Clean-up / Snack / Reading"
+            }
+          ]
+        },
+        {
+          "day": "Friday",
+          "date": "2026-06-05",
+          "dateLabel": "June 5, 2026",
+          "dayNumber": 176,
+          "schedule": [
+            {
+              "time": "10:00a",
+              "period": "First Period",
+              "subject": "Morning Huddle",
+              "title": "Calendar and Weather"
+            },
+            {
+              "time": "10:30a",
+              "period": "Second Period",
+              "subject": "Spelling / Phonics",
+              "title": "Weekly spelling words"
+            },
+            {
+              "time": "11:00a",
+              "period": "Third Period",
+              "subject": "Reading",
+              "title": "Read book of choice"
+            },
+            {
+              "time": "11:30a",
+              "period": "Fourth Period",
+              "subject": "Writing",
+              "title": "Author's Workshop Day 5 of 9"
+            },
+            {
+              "time": "12:00p",
+              "period": "Fifth Period",
+              "subject": "Math",
+              "title": "End-of-Year \"Math Olympics\" Review"
+            },
+            {
+              "time": "12:30p",
+              "period": "Lunch / Recess",
+              "subject": "Lunch / Recess",
+              "title": "Hamburger Sliders"
+            },
+            {
+              "time": "2:00p",
+              "period": "Sixth Period",
+              "subject": "Science or Social Studies",
+              "title": "Weather and our weather station"
+            },
+            {
+              "time": "2:30p",
+              "period": "Seventh Period",
+              "subject": "Art or Music",
+              "title": "Teacher's Choice"
+            },
+            {
+              "time": "3:00p",
+              "period": "Eighth Period",
+              "subject": "Clean-up / Snack / Reading",
+              "title": "Clean-up / Snack / Reading"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
