@@ -3,804 +3,431 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lynch Manor Academy — Scientia, Virtus, Lumen</title>
-<meta name="description" content="An independent Christian homeschool program in Pennsylvania. Knowledge, virtue, and light — rooted in family, faith, and the real world.">
-<meta property="og:title" content="Lynch Manor Academy">
-<meta property="og:description" content="Scientia · Virtus · Lumen. An independent Christian homeschool program in Pennsylvania.">
-<meta property="og:image" content="assets/lynch-manor-logo.png">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://lynchmanoracademy.org">
+<title>Student Portal · Lynch Manor Academy</title>
+<meta name="description" content="The Lynch Manor Academy student portal.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="any" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/lynch-manor-logo.png">
 <meta name="theme-color" content="#18243f">
-<link rel="icon" type="image/png" sizes="any" href="assets/favicon-32.png">
-<link rel="icon" type="image/png" sizes="180x180" href="assets/lynch-manor-logo.png">
-<link rel="apple-touch-icon" href="assets/lynch-manor-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy:        #18243f;
-    --navy-2:      #1f2a44;
-    --navy-line:   #2d3a5c;
-    --accent:      #e9b464;
-    --accent-quiet:#af8543;
-    --grey-bg:     #3d4046;
-    --grey-bg-2:   #34373c;
-    --grey-line:   #52555c;
-    --ink:         #e9ecf2;
-    --ink-dim:     #a9b0be;
-    --ink-quiet:   #b0b6c2;
-    --on-accent:   #1a1300;
-
-    --serif: 'Cinzel', 'Trajan Pro', 'Times New Roman', serif;
-    --serif-body: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-    --sans: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-
-    --measure: 64rem;
-    --measure-narrow: 42rem;
+    --navy:#18243f; --navy-2:#1f2a44; --navy-line:#2d3a5c;
+    --accent:#e9b464; --accent-quiet:#af8543;
+    --grey-bg:#3d4046; --grey-bg-2:#34373c; --grey-line:#52555c;
+    --ink:#e9ecf2; --ink-dim:#a9b0be; --ink-quiet:#b0b6c2; --on-accent:#1a1300;
+    --serif:'Cinzel','Trajan Pro','Times New Roman',serif;
+    --serif-body:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+    --sans:'Nunito',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --measure:72rem;
   }
-
-  * { box-sizing: border-box; }
-
-  html, body { margin: 0; padding: 0; }
-
-  body {
-    background: var(--navy);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 17px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    /* Paper-grain noise + a vignette so the navy doesn't feel flat. */
+  * { box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    background:var(--navy); color:var(--ink); font-family:var(--sans);
+    font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     background-image:
       radial-gradient(ellipse at 50% 0%, rgba(233,180,100,0.05) 0%, transparent 55%),
       radial-gradient(ellipse at 50% 100%, rgba(0,0,0,0.35) 0%, transparent 60%),
       url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.91, 0 0 0 0 0.71, 0 0 0 0 0.39, 0 0 0 0.025 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    background-attachment: fixed, fixed, fixed;
-    background-size: auto, auto, 160px 160px;
+    background-attachment:fixed,fixed,fixed; background-size:auto,auto,160px 160px;
   }
+  ::selection{ background:var(--accent); color:var(--on-accent); }
 
-  ::selection { background: var(--accent); color: var(--on-accent); }
+  .wrap{ max-width:var(--measure); margin:0 auto; padding:0 28px; }
 
-  /* ---------- Page rails ---------- */
-  .wrap {
-    max-width: var(--measure);
-    margin: 0 auto;
-    padding: 0 28px;
-  }
-  .wrap.narrow { max-width: var(--measure-narrow); }
+  /* ---------- Topbar ---------- */
+  .topbar{ position:sticky; top:0; z-index:30;
+    backdrop-filter:blur(10px) saturate(140%); -webkit-backdrop-filter:blur(10px) saturate(140%);
+    background:rgba(24,36,63,0.72); border-bottom:1px solid rgba(45,58,92,0.7); }
+  .topbar-inner{ max-width:var(--measure); margin:0 auto; padding:14px 28px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .topmark{ display:flex; align-items:center; gap:12px; color:var(--ink); text-decoration:none; }
+  .topmark img{ width:28px; height:28px; display:block; }
+  .topmark .name{ font-family:var(--serif); font-size:13px; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; }
+  .topmark .name em{ color:var(--accent); font-style:normal; font-weight:400; }
+  .topnav{ display:flex; align-items:center; gap:24px; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; font-weight:600; }
+  .topnav a{ color:var(--ink-dim); text-decoration:none; transition:color 160ms ease; }
+  .topnav a:hover{ color:var(--accent); }
+  .topnav a.active{ color:var(--accent); position:relative; }
+  .topnav a.active::after{ content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:var(--accent); opacity:0.85; }
+  .topnav .signout{ color:var(--ink-quiet); border:1px solid var(--navy-line); border-radius:3px; padding:6px 12px; letter-spacing:0.16em; }
+  .topnav .signout:hover{ color:var(--accent); border-color:var(--accent-quiet); }
+  @media (max-width:760px){ .topnav .nav-link{ display:none; } }
 
-  /* ---------- Top topbar ---------- */
-  .topbar {
-    position: sticky;
-    top: 0;
-    z-index: 30;
-    backdrop-filter: blur(10px) saturate(140%);
-    -webkit-backdrop-filter: blur(10px) saturate(140%);
-    background: rgba(24, 36, 63, 0.72);
-    border-bottom: 1px solid rgba(45, 58, 92, 0.7);
-  }
-  .topbar-inner {
-    max-width: var(--measure);
-    margin: 0 auto;
-    padding: 14px 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-  }
-  .topmark { display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
-  .topmark img { width: 28px; height: 28px; display: block; }
-  .topmark .name {
-    font-family: var(--serif);
-    font-size: 13px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-  .topmark .name em { color: var(--accent); font-style: normal; font-weight: 400; }
-  .topnav {
-    display: flex;
-    gap: 26px;
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-family: var(--sans);
-    font-weight: 600;
-  }
-  .topnav a {
-    color: var(--ink-dim);
-    text-decoration: none;
-    transition: color 160ms ease;
-  }
-  .topnav a:hover { color: var(--accent); }
-  @media (max-width: 720px) {
-    .topbar-inner { flex-direction: column; gap: 10px; padding: 12px 20px; }
-    .topnav { gap: 20px; justify-content: center; flex-wrap: wrap; font-size: 11px; letter-spacing: 0.12em; }
-  }
-  @media (max-width: 360px) {
-    .topnav { gap: 14px; }
-  }
+  /* ---------- Hero strip ---------- */
+  .hero{ text-align:center; padding:70px 28px 54px; position:relative; }
+  .hero::after{ content:""; position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+    width:min(620px,72vw); height:1px; background:linear-gradient(to right,transparent,var(--accent-quiet),transparent); opacity:0.55; }
+  .hero .eyebrow{ font-size:11px; letter-spacing:0.34em; text-transform:uppercase; color:var(--ink-quiet); font-weight:600; margin:0 0 16px; }
+  .hero .eyebrow .dot{ color:var(--accent); margin:0 0.5em; }
+  .hero h1{ font-family:var(--serif); font-weight:500; font-size:clamp(32px,5vw,52px); letter-spacing:0.05em; line-height:1.08; margin:0 0 16px; }
+  .hero h1 .gold{ color:var(--accent); }
+  .hero .sub{ font-family:var(--serif-body); font-style:italic; font-size:clamp(17px,2vw,21px); color:var(--ink-dim); margin:0 auto 26px; max-width:42ch; }
+  .verse{ font-family:var(--serif-body); font-style:italic; font-size:clamp(16px,1.9vw,19px); color:var(--ink); max-width:46ch; margin:0 auto; line-height:1.5; }
+  .verse cite{ display:block; margin-top:8px; font-family:var(--serif); font-style:normal; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--accent); }
 
-  /* ---------- Hero ---------- */
-  .hero {
-    text-align: center;
-    padding: 88px 28px 96px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before, .hero::after {
-    /* Ornamental hairline rules either side of the crest area */
-    content: "";
-    position: absolute;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--accent-quiet), transparent);
-    opacity: 0.55;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(560px, 70vw);
-  }
-  .hero::before { top: 64px; }
-  .hero::after  { bottom: 64px; }
+  /* ---------- Graduation banner ---------- */
+  .grad{ position:relative; margin:8px 0 12px; padding:48px 28px 52px; text-align:center; overflow:hidden;
+    border-top:1px solid rgba(45,58,92,0.6); border-bottom:1px solid rgba(45,58,92,0.6);
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(233,180,100,0.14) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 120%, rgba(233,180,100,0.07) 0%, transparent 55%); }
+  .grad::before, .grad::after{ content:""; position:absolute; left:50%; transform:translateX(-50%);
+    width:min(560px,70vw); height:1px; background:linear-gradient(to right,transparent,var(--accent-quiet),transparent); opacity:0.6; }
+  .grad::before{ top:20px; } .grad::after{ bottom:20px; }
 
-  .crest-wrap {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 14px;
-    margin: 0 auto 28px;
-  }
-  .crest-wrap::before {
-    content: "";
-    position: absolute; inset: 0;
-    border-radius: 50%;
-    background: radial-gradient(circle at 50% 45%, rgba(233,180,100,0.18), transparent 65%);
-    filter: blur(8px);
-    z-index: 0;
-  }
-  .crest {
-    position: relative;
-    z-index: 1;
-    width: 156px;
-    height: 156px;
-    display: block;
-    filter: drop-shadow(0 18px 28px rgba(0,0,0,0.45));
-  }
+  .grad-eyebrow{ font-family:var(--sans); font-size:11px; letter-spacing:0.34em; text-transform:uppercase; color:var(--accent); font-weight:700; margin:0 0 14px; }
+  .grad-eyebrow .star{ color:var(--accent-quiet); margin:0 0.5em; }
+  .grad h2{ font-family:var(--serif); font-weight:600; font-size:clamp(30px,5vw,52px); letter-spacing:0.04em; line-height:1.06; color:var(--ink); margin:0 0 14px; }
+  .grad h2 .gold{ color:var(--accent); }
+  .grad .grad-sub{ font-family:var(--serif-body); font-style:italic; font-size:clamp(17px,2.1vw,21px); color:var(--ink-dim); max-width:46ch; margin:0 auto 6px; line-height:1.5; }
+  .grad .grad-class{ font-family:var(--serif); font-size:12px; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); margin:0 0 36px; }
 
-  .eyebrow {
-    font-family: var(--sans);
-    font-size: 11px;
-    letter-spacing: 0.34em;
-    text-transform: uppercase;
-    color: var(--ink-quiet);
-    margin: 0 0 18px;
-    font-weight: 600;
-  }
-  .eyebrow .dot { color: var(--accent); margin: 0 0.5em; }
+  .diplomas{ display:flex; flex-wrap:wrap; gap:32px; justify-content:center; align-items:flex-start; }
+  .diploma{ width:min(540px,100%); }
+  .diploma-frame{ position:relative; background:#11192c; border:1px solid var(--navy-line);
+    border-radius:6px; padding:14px; box-shadow:0 24px 48px rgba(0,0,0,0.42); }
+  .diploma-frame::before{ content:""; position:absolute; inset:7px; border:1px solid var(--accent-quiet); opacity:0.45; border-radius:3px; pointer-events:none; z-index:2; }
+  /* The actual diploma image is dropped in here. Landscape certificate ratio. */
+  .diploma-slot{ position:relative; aspect-ratio:1196/928; border-radius:3px; overflow:hidden;
+    background:repeating-linear-gradient(135deg, rgba(255,255,255,0.018) 0 12px, transparent 12px 24px), #0c1322;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; text-align:center; padding:24px; }
+  .diploma-slot img.diploma-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; background:#fff; }
+  .diploma-slot .ph-crest{ width:54px; height:54px; opacity:0.5; }
+  .diploma-slot .ph-text{ font-family:var(--serif); font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-quiet); }
+  .diploma-slot .ph-sub{ font-family:var(--serif-body); font-style:italic; font-size:15px; color:var(--ink-quiet); margin-top:-6px; }
+  .diploma-name{ font-family:var(--serif); font-weight:500; font-size:21px; letter-spacing:0.05em; color:var(--ink); margin:16px 0 3px; text-align:center; }
+  .diploma-role{ font-family:var(--sans); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); font-weight:600; text-align:center; margin:0; }
+  @media (max-width:560px){ .diplomas{ gap:38px; } }
 
-  h1.title {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: clamp(34px, 5.8vw, 64px);
-    line-height: 1.05;
-    letter-spacing: 0.06em;
-    margin: 0 0 28px;
-    color: var(--ink);
-    text-transform: none;
-  }
-  h1.title .ampersand,
-  h1.title .gold { color: var(--accent); }
+  /* ---------- Itinerary section ---------- */
+  .itin-wrap{ padding:8px 0 56px; }
+  .itin-weekhead{ text-align:center; margin:0 0 40px; }
+  .itin-weekhead .num{ font-family:var(--serif); font-size:12px; letter-spacing:0.32em; text-transform:uppercase; color:var(--accent); font-weight:500; margin:0 0 12px; }
+  .itin-weekhead .num::before, .itin-weekhead .num::after{ content:""; display:inline-block; width:26px; height:1px; background:var(--accent-quiet); vertical-align:middle; margin:0 14px; opacity:0.7; }
+  .itin-weekhead h2{ font-family:var(--serif); font-weight:500; font-size:clamp(22px,3vw,30px); letter-spacing:0.06em; color:var(--ink); margin:0 0 8px; }
+  .itin-weekhead .range{ font-family:var(--serif-body); font-style:italic; font-size:18px; color:var(--ink-dim); margin:0; }
 
-  .motto {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: clamp(15px, 2.0vw, 20px);
-    letter-spacing: 0.42em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin: 0 0 10px;
-    text-indent: 0.42em; /* compensate trailing letter-spacing */
-  }
-  .motto .sep {
-    color: var(--accent-quiet);
-    margin: 0 0.15em;
-    font-weight: 400;
-  }
-  .motto-en {
-    font-family: var(--serif-body);
-    font-style: italic;
-    font-size: clamp(15px, 1.9vw, 19px);
-    color: var(--ink-dim);
-    letter-spacing: 0.04em;
-    margin: 0 0 36px;
-  }
-  .tagline {
-    font-family: var(--serif-body);
-    font-size: clamp(17px, 2.1vw, 22px);
-    color: var(--ink);
-    line-height: 1.5;
-    max-width: 38ch;
-    margin: 0 auto;
-  }
+  .itin-card{ background:var(--navy-2); border:1px solid var(--navy-line); border-left:4px solid var(--accent); border-radius:6px;
+    padding:26px 28px 28px; margin-bottom:30px; position:relative; }
+  .itin-cardhead{ display:flex; align-items:center; gap:16px; margin-bottom:22px; padding-bottom:18px; border-bottom:1px solid rgba(45,58,92,0.6); }
+  .itin-mono{ width:54px; height:54px; border-radius:50%; background:var(--navy); border:1px solid var(--navy-line); flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; position:relative; }
+  .itin-mono::before{ content:""; position:absolute; inset:4px; border-radius:50%; border:1px solid var(--accent-quiet); opacity:0.5; }
+  .itin-mono span{ font-family:var(--serif); font-size:23px; font-weight:500; color:var(--accent); line-height:1; }
+  .itin-cardhead .who h3{ font-family:var(--serif); font-weight:500; font-size:24px; letter-spacing:0.05em; color:var(--ink); margin:0 0 3px; }
+  .itin-cardhead .who .meta{ font-family:var(--sans); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); font-weight:600; margin:0; }
 
-  /* ---------- Section scaffold ---------- */
-  section.section {
-    padding: 92px 0;
-    position: relative;
-  }
-  .section + .section { border-top: 1px solid rgba(45, 58, 92, 0.55); }
+  .itin-grid{ display:grid; grid-template-columns:repeat(5, 1fr); gap:12px; }
+  @media (max-width:900px){ .itin-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .itin-grid{ grid-template-columns:1fr; } }
 
-  .section.alt {
-    background: linear-gradient(180deg, rgba(31, 42, 68, 0.55) 0%, rgba(31, 42, 68, 0.78) 100%);
-  }
+  .itin-day{ background:rgba(13,20,36,0.45); border:1px solid var(--navy-line); border-radius:5px; padding:13px 13px 6px; min-width:0; }
+  .itin-day.is-today{ border-color:var(--accent); box-shadow:0 0 0 1px var(--accent) inset, 0 6px 20px rgba(0,0,0,0.25); background:rgba(233,180,100,0.05); }
+  .itin-day-head{ font-family:var(--serif); font-weight:500; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink); margin:0 0 2px; }
+  .itin-day.is-today .itin-day-head{ color:var(--accent); }
+  .itin-day-date{ font-family:var(--sans); font-size:10.5px; letter-spacing:0.04em; color:var(--ink-quiet); margin:0 0 11px; padding-bottom:9px; border-bottom:1px solid rgba(45,58,92,0.5); }
+  .itin-day-date .todaytag{ color:var(--accent); font-weight:700; letter-spacing:0.1em; }
 
-  .section-head {
-    text-align: center;
-    margin-bottom: 56px;
-  }
-  .section-num {
-    font-family: var(--serif);
-    font-size: 12px;
-    letter-spacing: 0.32em;
-    color: var(--accent);
-    text-transform: uppercase;
-    font-weight: 500;
-    margin: 0 0 14px;
-  }
-  .section-num::before, .section-num::after {
-    content: "";
-    display: inline-block;
-    width: 28px; height: 1px;
-    background: var(--accent-quiet);
-    vertical-align: middle;
-    margin: 0 14px;
-    opacity: 0.7;
-  }
-  h2.section-title {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: clamp(26px, 3.4vw, 36px);
-    letter-spacing: 0.08em;
-    line-height: 1.2;
-    margin: 0 0 14px;
-    color: var(--ink);
-  }
-  .section-lede {
-    font-family: var(--serif-body);
-    font-style: italic;
-    color: var(--ink-dim);
-    font-size: 18px;
-    max-width: 52ch;
-    margin: 0 auto;
-  }
+  .itin-lesson{ padding:7px 0; border-bottom:1px dashed rgba(45,58,92,0.55); }
+  .itin-lesson:last-child{ border-bottom:0; }
+  .itin-subj{ font-family:var(--sans); font-size:9.5px; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; color:var(--accent); line-height:1.3; margin-bottom:2px; }
+  .itin-title{ font-family:var(--serif-body); font-size:15.5px; line-height:1.32; color:var(--ink); }
+  .itin-lesson.muted .itin-subj{ color:var(--ink-quiet); }
+  .itin-lesson.muted .itin-title{ color:var(--ink-dim); font-style:italic; }
+  .itin-tbd .itin-title{ color:var(--ink-quiet); font-style:italic; }
 
-  /* ---------- Three pillars ---------- */
-  .pillars {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-  }
-  @media (max-width: 860px) { .pillars { grid-template-columns: 1fr; } }
+  .itin-empty{ text-align:center; padding:40px 20px; font-family:var(--serif-body); font-style:italic; font-size:17px; color:var(--ink-quiet); }
+  .itin-foot{ text-align:center; margin:6px 0 0; font-family:var(--sans); font-size:11px; letter-spacing:0.1em; color:var(--ink-quiet); }
 
-  .pillar {
-    padding: 8px 36px;
-    text-align: center;
-    position: relative;
-  }
-  .pillar + .pillar { border-left: 1px solid rgba(45, 58, 92, 0.7); }
-  @media (max-width: 860px) {
-    .pillar + .pillar { border-left: 0; border-top: 1px solid rgba(45, 58, 92, 0.7); padding-top: 40px; margin-top: 32px; }
-    .pillar { padding: 0 8px; }
-  }
-
-  .pillar-glyph {
-    font-family: var(--serif);
-    font-size: 38px;
-    color: var(--accent);
-    letter-spacing: 0.06em;
-    margin: 0 0 14px;
-    font-weight: 400;
-    line-height: 1;
-  }
-  .pillar-glyph .ornament {
-    display: inline-block;
-    margin: 0 6px;
-    color: var(--accent-quiet);
-    font-size: 14px;
-    vertical-align: middle;
-    transform: translateY(-4px);
-  }
-  .pillar h3 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 22px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin: 0 0 6px;
-    color: var(--ink);
-  }
-  .pillar .en {
-    font-family: var(--serif-body);
-    font-style: italic;
-    color: var(--accent);
-    font-size: 15px;
-    margin: 0 0 18px;
-    letter-spacing: 0.02em;
-  }
-  .pillar p {
-    font-family: var(--serif-body);
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--ink-dim);
-    margin: 0;
-    max-width: 32ch;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* ---------- About ---------- */
-  .about-prose {
-    font-family: var(--serif-body);
-    font-size: 20px;
-    line-height: 1.65;
-    color: var(--ink);
-    max-width: 38rem;
-    margin: 0 auto;
-  }
-  .about-prose p { margin: 0 0 1.1em; }
-  .about-prose p:first-of-type::first-letter {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 3.4em;
-    line-height: 0.95;
-    float: left;
-    color: var(--accent);
-    margin: 0.05em 0.12em 0 -0.04em;
-    padding-right: 0.04em;
-  }
-  .about-sign {
-    text-align: center;
-    margin-top: 36px;
-    font-family: var(--serif);
-    font-size: 11px;
-    letter-spacing: 0.32em;
-    color: var(--accent);
-    text-transform: uppercase;
-  }
-  .about-sign .rule {
-    display: inline-block;
-    width: 36px; height: 1px;
-    background: var(--accent-quiet);
-    vertical-align: middle;
-    margin: 0 14px;
-    opacity: 0.7;
-  }
-
-  /* ---------- People grid (students + faculty) ---------- */
-  .people {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-  }
-  @media (max-width: 720px) { .people { grid-template-columns: 1fr; } }
-
-  .person-card {
-    background: var(--navy-2);
-    border: 1px solid var(--navy-line);
-    border-radius: 4px;
-    padding: 32px 32px 28px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .person-card::before {
-    content: "";
-    position: absolute;
-    top: -1px; left: 18px; right: 18px;
-    height: 2px;
-    background: var(--accent);
-    opacity: 0.85;
-  }
-
-  .portrait {
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
-    background: var(--navy);
-    border: 1px solid var(--navy-line);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 22px;
-    position: relative;
-    overflow: hidden;
-  }
-  .portrait::before {
-    content: "";
-    position: absolute; inset: 4px;
-    border-radius: 50%;
-    border: 1px solid var(--accent-quiet);
-    opacity: 0.55;
-  }
-  .portrait .initial {
-    font-family: var(--serif);
-    font-size: 34px;
-    font-weight: 500;
-    color: var(--accent);
-    letter-spacing: 0.04em;
-    line-height: 1;
-  }
-
-  .person-name {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 22px;
-    letter-spacing: 0.06em;
-    margin: 0 0 4px;
-    color: var(--ink);
-  }
-  .person-role {
-    font-family: var(--sans);
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--accent);
-    font-weight: 600;
-    margin: 0 0 18px;
-  }
-  .person-meta {
-    font-family: var(--serif-body);
-    font-style: italic;
-    color: var(--ink-quiet);
-    font-size: 15px;
-    margin: 0 0 14px;
-  }
-  .person-bio {
-    font-family: var(--serif-body);
-    font-size: 17px;
-    line-height: 1.55;
-    color: var(--ink-dim);
-    margin: 0;
-    max-width: 32ch;
-  }
-
-  /* ---------- Curriculum grid ---------- */
-  .curr-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0;
-    border: 1px solid var(--navy-line);
-    border-radius: 4px;
-    overflow: hidden;
-    background: rgba(31, 42, 68, 0.4);
-  }
-  @media (max-width: 720px) { .curr-grid { grid-template-columns: 1fr; } }
-
-  .curr-item {
-    padding: 24px 28px;
-    border-bottom: 1px solid var(--navy-line);
-    border-right: 1px solid var(--navy-line);
-    display: flex;
-    gap: 18px;
-    align-items: baseline;
-  }
-  .curr-item:nth-child(2n) { border-right: 0; }
-  @media (max-width: 720px) {
-    .curr-item { border-right: 0; }
-  }
-  .curr-item:nth-last-child(-n+2) { border-bottom: 0; }
-  @media (max-width: 720px) {
-    .curr-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--navy-line); }
-    .curr-item:last-child { border-bottom: 0; }
-  }
-
-  .curr-num {
-    font-family: var(--serif);
-    font-size: 13px;
-    color: var(--accent);
-    letter-spacing: 0.14em;
-    font-weight: 500;
-    min-width: 2.2em;
-    text-align: right;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .curr-body { flex: 1; }
-  .curr-name {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 17px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink);
-    margin: 0 0 4px;
-  }
-  .curr-desc {
-    font-family: var(--serif-body);
-    font-size: 16px;
-    color: var(--ink-dim);
-    line-height: 1.5;
-    margin: 0;
-  }
-
-  /* ---------- Scripture quote ---------- */
-  .scripture {
-    text-align: center;
-    padding: 80px 28px;
-    border-top: 1px solid rgba(45, 58, 92, 0.55);
-    border-bottom: 1px solid rgba(45, 58, 92, 0.55);
-  }
-  .scripture blockquote {
-    margin: 0 auto;
-    max-width: 44rem;
-    font-family: var(--serif-body);
-    font-style: italic;
-    font-weight: 400;
-    font-size: clamp(22px, 2.8vw, 30px);
-    line-height: 1.45;
-    color: var(--ink);
-    position: relative;
-  }
-  .scripture blockquote::before,
-  .scripture blockquote::after {
-    color: var(--accent-quiet);
-    font-family: var(--serif);
-    font-size: 1.4em;
-    line-height: 0;
-    position: relative;
-    top: 0.2em;
-    opacity: 0.7;
-  }
-  .scripture blockquote::before { content: "\201C"; margin-right: 0.1em; }
-  .scripture blockquote::after  { content: "\201D"; margin-left: 0.05em; }
-  .scripture cite {
-    display: block;
-    margin-top: 22px;
-    font-family: var(--serif);
-    font-size: 12px;
-    letter-spacing: 0.32em;
-    color: var(--accent);
-    text-transform: uppercase;
-    font-style: normal;
-    font-weight: 500;
-  }
+  /* summer message (replaces the day grid when school is out) */
+  .itin-summer{ text-align:center; padding:14px 18px 6px; }
+  .itin-summer .sun{ color:var(--accent-quiet); font-size:14px; letter-spacing:0.32em; margin:0 0 14px; max-width:none; }
+  .itin-summer p{ font-family:var(--serif-body); font-style:italic; font-size:19px; line-height:1.55; color:var(--ink); margin:0 auto; max-width:34ch; }
+  .itin-summer .when{ display:block; margin-top:14px; font-family:var(--serif); font-style:normal; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent); }
 
   /* ---------- Footer ---------- */
-  footer.foot {
-    background: var(--navy-2);
-    border-top: 1px solid var(--navy-line);
-    padding: 72px 28px 36px;
-    text-align: center;
-    color: var(--ink-dim);
-  }
-  footer.foot .crest-sm {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 22px;
-    display: block;
-    opacity: 0.92;
-  }
-  footer.foot .f-name {
-    font-family: var(--serif);
-    font-size: 16px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--ink);
-    margin: 0 0 12px;
-    font-weight: 500;
-  }
-  footer.foot .f-motto {
-    font-family: var(--serif);
-    font-size: 12px;
-    letter-spacing: 0.42em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin: 0 0 18px;
-    text-indent: 0.42em;
-  }
-  footer.foot .f-meta {
-    font-family: var(--sans);
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-quiet);
-    margin: 0;
-  }
-  footer.foot .f-meta a { color: var(--ink-dim); text-decoration: none; border-bottom: 1px solid var(--navy-line); padding-bottom: 1px; }
-  footer.foot .f-meta a:hover { color: var(--accent); border-color: var(--accent-quiet); }
-  footer.foot .f-rule {
-    width: 80px; height: 1px;
-    background: var(--accent-quiet);
-    opacity: 0.6;
-    margin: 30px auto 24px;
-    border: 0;
-  }
-  footer.foot .colophon {
-    font-family: var(--serif-body);
-    font-style: italic;
-    font-size: 14px;
-    color: var(--ink-quiet);
-    margin: 0;
-  }
-
-  /* ---------- Scroll-in animation ---------- */
-  .reveal {
-    opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 700ms ease, transform 700ms ease;
-    will-change: opacity, transform;
-  }
-  .reveal.in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
-
-  /* ---------- Print ---------- */
-  @media print {
-    body {
-      background: #fff;
-      color: #1a1a1a;
-      font-size: 11pt;
-    }
-    .topbar { display: none; }
-    .hero { padding: 24pt 0; }
-    .hero::before, .hero::after { display: none; }
-    .crest { filter: none; width: 110px; height: 110px; }
-    h1.title, h2.section-title, .person-name, .curr-name, .f-name { color: #18243f; }
-    .motto, .pillar .en, .person-role, .section-num, .about-sign, .scripture cite, .f-motto, .pillar-glyph, .curr-num { color: #af8543; }
-    .motto-en, .section-lede, .pillar p, .person-meta, .person-bio, .curr-desc, .about-prose, .scripture blockquote, .colophon { color: #34373c; }
-    .section { padding: 18pt 0; page-break-inside: avoid; border-top: 1pt solid #ccc; }
-    .person-card, .curr-grid { background: #fff; border-color: #ccc; }
-    .curr-item { border-color: #eee; }
-    .portrait { background: #faf6ec; }
-    .portrait::before { border-color: #c89d4f; }
-    .reveal { opacity: 1; transform: none; }
-    footer.foot { background: #fff; border-color: #ccc; color: #34373c; }
-    @page { margin: 0.6in; }
-  }
+  footer{ border-top:1px solid var(--navy-line); background:var(--navy-2); text-align:center; padding:48px 28px 40px; }
+  footer .crest{ width:52px; height:52px; margin:0 auto 16px; display:block; opacity:0.92; }
+  footer .f-motto{ font-family:var(--serif); font-size:11px; letter-spacing:0.42em; text-transform:uppercase; color:var(--accent); margin:0 0 10px; text-indent:0.42em; }
+  footer .f-meta{ font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-quiet); margin:0; }
+  footer .f-meta a{ color:var(--ink-dim); text-decoration:none; border-bottom:1px solid var(--navy-line); }
+  footer .f-meta a:hover{ color:var(--accent); border-color:var(--accent-quiet); }
 </style>
 </head>
 <body>
 
-  <!-- ============================ TOPBAR ============================ -->
+  <!-- ===================== TOPBAR ===================== -->
   <header class="topbar" role="banner">
     <div class="topbar-inner">
-      <a class="topmark" href="#top" aria-label="Lynch Manor Academy — home">
-        <img src="assets/lynch-manor-logo.png" alt="" aria-hidden="true">
+      <a class="topmark" href="/" aria-label="Lynch Manor Academy — home">
+        <img src="../assets/lynch-manor-logo.png" alt="" aria-hidden="true">
         <span class="name">Lynch Manor <em>Academy</em></span>
       </a>
       <nav class="topnav" aria-label="Primary">
-        <a href="#pillars">Pillars</a>
-        <a href="#about">About</a>
-        <a href="/students">Student Portal</a>
+        <a class="nav-link" href="/#pillars">Pillars</a>
+        <a class="nav-link" href="/#about">About</a>
+        <a class="active" href="/students" aria-current="page">Student Portal</a>
+        <a class="signout" href="/students/logout">Sign out</a>
       </nav>
     </div>
   </header>
 
-  <!-- ============================ HERO ============================== -->
-  <main id="top">
-  <section class="hero" aria-label="Lynch Manor Academy">
+  <main>
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" aria-label="Welcome">
     <div class="wrap">
-      <div class="crest-wrap">
-        <img class="crest" src="assets/lynch-manor-logo.png" alt="Lynch Manor Academy crest">
-      </div>
-      <p class="eyebrow">Established<span class="dot">·</span>MMXXV<span class="dot">·</span>Pennsylvania</p>
-      <h1 class="title">Lynch Manor <span class="gold">Academy</span></h1>
-      <p class="motto">Scientia <span class="sep">·</span> Virtus <span class="sep">·</span> Lumen</p>
-      <p class="motto-en">Knowledge · Virtue · Light</p>
-      <p class="tagline">An independent Christian homeschool program rooted in Pennsylvania.</p>
+      <p class="eyebrow" id="datestrip">&nbsp;</p>
+      <h1>Welcome, <span class="gold">Scholars</span></h1>
+      <p class="sub">Different temperaments, different paces, same kitchen table.</p>
+      <p class="verse" id="verse">
+        <span class="vtext">This is the day which the Lord hath made; we will rejoice and be glad in it.</span>
+        <cite class="vcite">Psalm 118:24</cite>
+      </p>
     </div>
   </section>
 
-  <!-- ============================ PILLARS =========================== -->
-  <section class="section" id="pillars" aria-labelledby="pillars-h">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="section-num">I &nbsp;·&nbsp; The Three Pillars</p>
-        <h2 class="section-title" id="pillars-h">A Threefold Foundation</h2>
-        <p class="section-lede">Every lesson at Lynch Manor stands on these three words.</p>
-      </div>
+  <!-- ===================== GRADUATION ===================== -->
+  <section class="grad" aria-labelledby="grad-h">
+    <p class="grad-eyebrow">Lynch Manor Academy <span class="star">&#10022;</span> Commencement</p>
+    <h2 id="grad-h">Congratulations, <span class="gold">Graduates!</span></h2>
+    <p class="grad-sub">With grateful hearts we celebrate a year of knowledge, virtue, and light &mdash; and two scholars who gave it their very best.</p>
+    <p class="grad-class">Class of 2026</p>
 
-      <div class="pillars">
-        <article class="pillar reveal">
-          <p class="pillar-glyph">I<span class="ornament">✦</span></p>
-          <h3>Scientia</h3>
-          <p class="en">Knowledge</p>
-          <p>Rigorous academics aligned to Pennsylvania Academic Standards, taught with curiosity and real-world connection. A structured 180-day year across reading, writing, math, science, social studies, art, and music.</p>
-        </article>
+    <div class="diplomas">
+      <figure class="diploma">
+        <div class="diploma-frame">
+          <div class="diploma-slot" data-diploma="savannah">
+            <img class="diploma-img" src="../assets/diploma-savannah.png" alt="Savannah&rsquo;s Lynch Manor Academy diploma — First Grade">
+          </div>
+        </div>
+        <figcaption>
+          <p class="diploma-name">Savannah</p>
+          <p class="diploma-role">Promoted to Second Grade</p>
+        </figcaption>
+      </figure>
 
-        <article class="pillar reveal">
-          <p class="pillar-glyph">II<span class="ornament">✦</span></p>
-          <h3>Virtus</h3>
-          <p class="en">Virtue</p>
-          <p>Character formation grounded in a Christian worldview. Each lesson closes with scripture relevant to the day's learning — a foundation of faith built alongside academic excellence.</p>
-        </article>
-
-        <article class="pillar reveal">
-          <p class="pillar-glyph">III<span class="ornament">✦</span></p>
-          <h3>Lumen</h3>
-          <p class="en">Light</p>
-          <p>Hands-on learning drawn from our family flower farm, the seasons, and the world around us. Knowledge becomes wisdom when it meets real life.</p>
-        </article>
-      </div>
+      <figure class="diploma">
+        <div class="diploma-frame">
+          <div class="diploma-slot" data-diploma="collin">
+            <img class="diploma-img" src="../assets/diploma-collin.png" alt="Collin&rsquo;s Lynch Manor Academy diploma — Kindergarten">
+          </div>
+        </div>
+        <figcaption>
+          <p class="diploma-name">Collin</p>
+          <p class="diploma-role">Promoted to First Grade</p>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- ============================ ABOUT ============================= -->
-  <section class="section alt" id="about" aria-labelledby="about-h">
-    <div class="wrap narrow">
-      <div class="section-head reveal">
-        <p class="section-num">II &nbsp;·&nbsp; About the Academy</p>
-        <h2 class="section-title" id="about-h">A Home, A Schoolhouse, A Farm</h2>
+  <!-- ===================== ITINERARY ===================== -->
+  <div class="wrap">
+    <div class="itin-wrap">
+      <div class="itin-weekhead">
+        <p class="num">I &nbsp;&middot;&nbsp; Weekly Itinerary</p>
+        <h2 id="itin-title">Enjoy Your Summer!</h2>
+        <p class="range" id="itin-range">See you September 8th</p>
       </div>
-      <div class="about-prose reveal">
-        <p>Lynch Manor Academy is the home education program founded by the Lynch family in Pennsylvania. LMA exists to give our children — and the children who follow — a rigorous, faith-rooted education that takes both the classical academic tradition and the real world seriously.</p>
-        <p>Our classroom is part schoolhouse, part flower farm, part kitchen table. We teach by Pennsylvania Academic Standards, integrate a Christian worldview, and build our own curriculum where the best off-the-shelf options fall short.</p>
+      <div id="itinerary-root" aria-live="polite">
+        <p class="itin-empty">Loading&hellip;</p>
       </div>
-      <p class="about-sign reveal"><span class="rule"></span>The Lynch Family<span class="rule"></span></p>
+      <p class="itin-foot">Lessons resume Monday, September 8th</p>
     </div>
-  </section>
-
-  <!-- ============================ SCRIPTURE ========================= -->
-  <section class="scripture reveal" aria-label="Closing scripture">
-    <blockquote>
-      Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven.
-    </blockquote>
-    <cite>Matthew 5:16</cite>
-  </section>
+  </div>
   </main>
 
-  <!-- ============================ FOOTER ============================ -->
-  <footer class="foot" role="contentinfo">
-    <img class="crest-sm" src="assets/lynch-manor-logo.png" alt="Lynch Manor Academy">
-    <p class="f-name">Lynch Manor Academy</p>
-    <p class="f-motto">Scientia <span style="color:var(--accent-quiet);">·</span> Virtus <span style="color:var(--accent-quiet);">·</span> Lumen</p>
-    <p class="f-meta">Pennsylvania &nbsp;·&nbsp; Est. MMXXV &nbsp;·&nbsp; <a href="mailto:hello@lynchmanoracademy.org">hello@lynchmanoracademy.org</a></p>
-    <hr class="f-rule">
-    <p class="colophon">&ldquo;Let your light so shine before men.&rdquo; &nbsp;—&nbsp; Matthew 5:16</p>
+  <!-- Fallback data: embedded copy of the current week, used if itinerary.json
+       can't be fetched. The live source of truth is students/itinerary.json. -->
+  <script type="application/json" id="itinerary-fallback">{"school":"Lynch Manor Academy","schoolYear":"2025–2026","weekStart":"2026-06-08","weekEnd":"2026-06-12","weekLabel":"Week of June 8, 2026 – June 12, 2026","generatedAt":"2026-06-08T01:25:25.006Z","students":[{"name":"Collin","grade":"Kindergarten","days":[{"day":"Monday","date":"2026-06-08","dateLabel":"June 8, 2026","dayNumber":177,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"(to be determined)"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"(to be determined)"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"(to be determined)"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"(to be determined)"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Chef's Choice"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"(to be determined)"},{"time":"2:30p","period":"Seventh Period","subject":"Art or Music","title":"(to be determined)"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]},{"day":"Tuesday","date":"2026-06-09","dateLabel":"June 9, 2026","dayNumber":178,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"(to be determined)"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"(to be determined)"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"(to be determined)"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"(to be determined)"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Chef's Choice"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"(to be determined)"},{"time":"2:30p","period":"Seventh Period","subject":"Art or Music","title":"(to be determined)"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]},{"day":"Wednesday","date":"2026-06-10","dateLabel":"June 10, 2026","dayNumber":179,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"(to be determined)"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"(to be determined)"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"(to be determined)"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"(to be determined)"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Chef's Choice"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"(to be determined)"},{"time":"2:30p","period":"Seventh Period","subject":"Art or Music","title":"(to be determined)"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]},{"day":"Thursday","date":"2026-06-11","dateLabel":"June 11, 2026","dayNumber":180,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"(to be determined)"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"(to be determined)"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"(to be determined)"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"(to be determined)"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Chef's Choice"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"(to be determined)"},{"time":"2:30p","period":"Seventh Period","subject":"Art or Music","title":"(to be determined)"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]},{"day":"Friday","date":"2026-06-12","dateLabel":"June 12, 2026","schedule":[],"note":"No school day scheduled"}],"spelling":[]},{"name":"Savannah","grade":"1st Grade","days":[{"day":"Monday","date":"2026-06-08","dateLabel":"June 8, 2026","dayNumber":177,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"HOP 19/20 Review"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"Read book of choice"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"Author's Workshop Day 6 of 9"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"End-of-Year \"Math Olympics\" Review"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Chef's Choice"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"(to be determined)"},{"time":"2:30p","period":"Seventh Period","subject":"Art or Music","title":"(to be determined)"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]},{"day":"Tuesday","date":"2026-06-09","dateLabel":"June 9, 2026","dayNumber":178,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"(to be determined)"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"Read book of choice"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"Author's Workshop Day 7 of 9"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"(to be determined)"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Chef's Choice"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"(to be determined)"},{"time":"2:30p","period":"Seventh Period","subject":"Art or Music","title":"(to be determined)"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]},{"day":"Wednesday","date":"2026-06-10","dateLabel":"June 10, 2026","dayNumber":179,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"(to be determined)"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"Read book of choice"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"Author's Workshop Day 8 of 9"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"(to be determined)"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Chef's Choice"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"(to be determined)"},{"time":"2:30p","period":"Seventh Period","subject":"Art or Music","title":"(to be determined)"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]},{"day":"Thursday","date":"2026-06-11","dateLabel":"June 11, 2026","dayNumber":180,"schedule":[{"time":"10:00a","period":"First Period","subject":"Morning Huddle","title":"Calendar and Weather"},{"time":"10:30a","period":"Second Period","subject":"Spelling / Phonics","title":"(to be determined)"},{"time":"11:00a","period":"Third Period","subject":"Reading","title":"(to be determined)"},{"time":"11:30a","period":"Fourth Period","subject":"Writing","title":"Author's Workshop Day 9 of 9"},{"time":"12:00p","period":"Fifth Period","subject":"Math","title":"(to be determined)"},{"time":"12:30p","period":"Lunch / Recess","subject":"Lunch / Recess","title":"Chef's Choice"},{"time":"2:00p","period":"Sixth Period","subject":"Science or Social Studies","title":"(to be determined)"},{"time":"2:30p","period":"Seventh Period","subject":"Art or Music","title":"(to be determined)"},{"time":"3:00p","period":"Eighth Period","subject":"Clean-up / Snack / Reading","title":"Clean-up / Snack / Reading"}]},{"day":"Friday","date":"2026-06-12","dateLabel":"June 12, 2026","schedule":[],"note":"No school day scheduled"}],"spelling":[]}]}</script>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer role="contentinfo">
+    <img class="crest" src="../assets/lynch-manor-logo.png" alt="Lynch Manor Academy">
+    <p class="f-motto">Scientia &middot; Virtus &middot; Lumen</p>
+    <p class="f-meta">Student Portal &nbsp;&middot;&nbsp; For Lynch family use only &nbsp;&middot;&nbsp; <a href="/students/logout">Sign out</a></p>
   </footer>
 
 <script>
-  // Subtle fade-in on scroll.
+  // ---- Date strip: "Wednesday · May 27 · Day 167 of 180" ----
   (function () {
-    if (!('IntersectionObserver' in window)) {
-      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
-      return;
+    var now = new Date();
+    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var weekday = days[now.getDay()];
+    var dateStr = months[now.getMonth()] + ' ' + now.getDate();
+
+    // School year assumed to start the first Monday of September; count weekdays
+    // elapsed (Mon–Fri), capped to a 180-day year.
+    var year = now.getMonth() >= 7 ? now.getFullYear() : now.getFullYear() - 1; // Aug+ = this year's start
+    var start = new Date(year, 8, 1); // Sept 1
+    while (start.getDay() !== 1) start.setDate(start.getDate() + 1); // first Monday
+
+    var schoolDay = 0;
+    if (now >= start) {
+      var cursor = new Date(start);
+      while (cursor <= now && schoolDay < 180) {
+        var d = cursor.getDay();
+        if (d !== 0 && d !== 6) schoolDay++;
+        cursor.setDate(cursor.getDate() + 1);
+      }
     }
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    schoolDay = Math.min(Math.max(schoolDay, 1), 180);
+
+    var parts = [weekday, dateStr, 'Day ' + schoolDay + ' of 180'];
+    var html = parts.map(function (p, i) {
+      return (i ? '<span class="dot">&middot;</span>' : '') + p;
+    }).join(' ');
+    document.getElementById('datestrip').innerHTML = html;
   })();
 
-  // Smooth-scroll for in-page anchors (respects reduced motion).
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const id = a.getAttribute('href');
-      if (id.length < 2) return;
-      const target = document.querySelector(id);
-      if (!target) return;
-      e.preventDefault();
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const topbar = document.querySelector('.topbar');
-      const offset = topbar ? topbar.getBoundingClientRect().height : 0;
-      const y = target.getBoundingClientRect().top + window.pageYOffset - offset - 8;
-      window.scrollTo({ top: y, behavior: prefersReduced ? 'auto' : 'smooth' });
-    });
-  });
+  // ---- Rotating scripture: one verse per calendar day ----
+  (function () {
+    var verses = [
+      ['This is the day which the Lord hath made; we will rejoice and be glad in it.', 'Psalm 118:24'],
+      ['Let your light so shine before men, that they may see your good works.', 'Matthew 5:16'],
+      ['Train up a child in the way he should go.', 'Proverbs 22:6'],
+      ['The fear of the Lord is the beginning of knowledge.', 'Proverbs 1:7'],
+      ['Whatsoever thy hand findeth to do, do it with thy might.', 'Ecclesiastes 9:10'],
+      ['I can do all things through Christ which strengtheneth me.', 'Philippians 4:13'],
+      ['Thy word is a lamp unto my feet, and a light unto my path.', 'Psalm 119:105']
+    ];
+    var dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
+    var pick = verses[dayOfYear % verses.length];
+    var el = document.getElementById('verse');
+    if (el && pick) {
+      el.querySelector('.vtext').textContent = pick[0];
+      el.querySelector('.vcite').textContent = pick[1];
+    }
+  })();
+
+  // ---- Weekly Itinerary ----
+  // SUMMER_MODE: when true, school is out — show a summer message instead of
+  // fetching weekly lessons. Flip to false in September to resume the itinerary
+  // (it will fetch students/itinerary.json again as before).
+  (function () {
+    var SUMMER_MODE = true;
+
+    var root = document.getElementById('itinerary-root');
+    if (!root) return;
+
+    function todayISO() {
+      var d = new Date();
+      var m = String(d.getMonth() + 1).padStart(2, '0');
+      var day = String(d.getDate()).padStart(2, '0');
+      return d.getFullYear() + '-' + m + '-' + day;
+    }
+    var TODAY = todayISO();
+
+    function esc(s) {
+      return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    // ---- Summer recess view ----
+    function renderSummer() {
+      var students = [
+        { name: 'Collin',   grade: 'First Grade Student' },
+        { name: 'Savannah', grade: 'Second Grade Student' }
+      ];
+      var html = '';
+      students.forEach(function (stu) {
+        html += '<section class="itin-card" aria-label="' + esc(stu.name) + '">';
+        html += '<div class="itin-cardhead">';
+        html += '<div class="itin-mono" aria-hidden="true"><span>' + esc(stu.name.charAt(0)) + '</span></div>';
+        html += '<div class="who"><h3>' + esc(stu.name) + '</h3><p class="meta">' + esc(stu.grade) + '</p></div>';
+        html += '</div>';
+        html += '<div class="itin-summer">';
+        html += '<p class="sun">&#10022;</p>';
+        html += '<p>Enjoy your summer vacation! Rest well, play hard, and we&rsquo;ll see you back at the table in the fall.';
+        html += '<span class="when">See you September 8th</span></p>';
+        html += '</div>';
+        html += '</section>';
+      });
+      root.innerHTML = html;
+    }
+
+    if (SUMMER_MODE) { renderSummer(); return; }
+
+    function isMuted(subject) {
+      var s = (subject || '').toLowerCase();
+      return s.indexOf('lunch') !== -1 || s.indexOf('recess') !== -1 ||
+             s.indexOf('clean-up') !== -1 || s.indexOf('snack') !== -1;
+    }
+    function isTBD(title) {
+      var t = (title || '').toLowerCase();
+      return t.indexOf('to be determined') !== -1 || t === '(tbd)' || t === 'tbd';
+    }
+
+    function render(data) {
+      if (!data || !Array.isArray(data.students) || !data.students.length) {
+        root.innerHTML = '<p class="itin-empty">This week&rsquo;s lessons haven&rsquo;t been posted yet. Check back soon.</p>';
+        return;
+      }
+
+      // Week header
+      var titleEl = document.getElementById('itin-title');
+      var rangeEl = document.getElementById('itin-range');
+      if (rangeEl && data.weekLabel) rangeEl.textContent = data.weekLabel;
+      if (titleEl) titleEl.textContent = 'This Week\u2019s Lessons';
+
+      var html = '';
+      data.students.forEach(function (stu) {
+        var initial = esc((stu.name || '?').charAt(0));
+        var grade = esc(stu.grade || '');
+        html += '<section class="itin-card" aria-label="' + esc(stu.name) + '\u2019s weekly itinerary">';
+        html += '<div class="itin-cardhead">';
+        html += '<div class="itin-mono" aria-hidden="true"><span>' + initial + '</span></div>';
+        html += '<div class="who"><h3>' + esc(stu.name) + '</h3><p class="meta">' + grade + ' &middot; Student</p></div>';
+        html += '</div>';
+        html += '<div class="itin-grid">';
+
+        (stu.days || []).forEach(function (day) {
+          var today = day.date === TODAY;
+          html += '<div class="itin-day' + (today ? ' is-today' : '') + '">';
+          html += '<p class="itin-day-head">' + esc(day.day) + '</p>';
+          var dateLine = esc(day.dateLabel || '');
+          if (day.dayNumber) dateLine += ' &middot; Day ' + esc(day.dayNumber);
+          if (today) dateLine += ' <span class="todaytag">&mdash; Today</span>';
+          html += '<p class="itin-day-date">' + dateLine + '</p>';
+
+          (day.schedule || []).forEach(function (lesson) {
+            var cls = 'itin-lesson';
+            if (isMuted(lesson.subject)) cls += ' muted';
+            if (isTBD(lesson.title)) cls += ' itin-tbd';
+            html += '<div class="' + cls + '">';
+            html += '<div class="itin-subj">' + esc(lesson.subject || lesson.period || '') + '</div>';
+            html += '<div class="itin-title">' + esc(lesson.title || '') + '</div>';
+            html += '</div>';
+          });
+
+          html += '</div>';
+        });
+
+        html += '</div></section>';
+      });
+
+      root.innerHTML = html;
+    }
+
+    function loadFallback() {
+      try {
+        var raw = document.getElementById('itinerary-fallback').textContent;
+        render(JSON.parse(raw));
+      } catch (e) {
+        root.innerHTML = '<p class="itin-empty">This week&rsquo;s lessons haven&rsquo;t been posted yet. Check back soon.</p>';
+      }
+    }
+
+    fetch('itinerary.json', { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('status ' + r.status); return r.json(); })
+      .then(function (data) { render(data); })
+      .catch(function () { loadFallback(); });
+  })();
+
 </script>
 </body>
 </html>
